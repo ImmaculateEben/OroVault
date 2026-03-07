@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shopping Cart — OroVault</title>
+  <title>Shopping Cart â€” OroVault</title>
   <meta name="description" content="Review your selected watches and proceed to secure checkout at OroVault. Free worldwide shipping on all orders.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -28,19 +28,19 @@
   </script>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-[#0D0D0D] text-[#F5F5F5] font-sans">
+<body class="bg-[var(--dark)] text-[var(--white)] font-sans">
 
   <!-- Navbar -->
   <div id="navbar-placeholder"></div>
 
   <!-- Page Header -->
-  <section class="pt-28 pb-8 bg-gradient-to-b from-[#1A1A1A] to-[#0D0D0D]">
+  <section class="pt-28 pb-8 bg-gradient-to-b from-[var(--dark-light)] to-[var(--dark)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h1 class="font-serif text-4xl md:text-5xl font-bold mb-2">Shopping Cart</h1>
-      <p class="text-[#888] text-sm">
-        <a href="index.html" class="hover:text-[#C9A84C]">Home</a>
+      <p class="text-[var(--gray)] text-sm">
+        <a href="index.html" class="hover:text-[var(--gold)]">Home</a>
         <span class="mx-2">/</span>
-        <span class="text-[#C9A84C]">Cart</span>
+        <span class="text-[var(--gold)]">Cart</span>
       </p>
     </div>
   </section>
@@ -71,10 +71,10 @@
       if (cart.length === 0) {
         container.innerHTML = `
           <div class="text-center py-20">
-            <svg class="w-20 h-20 text-[#2A2A2A] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/></svg>
-            <h2 class="font-serif text-2xl text-[#888] mb-2">Your Cart is Empty</h2>
-            <p class="text-[#888] text-sm mb-6">Looks like you haven't added any watches yet.</p>
-            <a href="shop.html" class="btn-gold text-[#0D0D0D] px-8 py-3 rounded-lg text-sm uppercase tracking-wider font-bold inline-block">Continue Shopping</a>
+            <svg class="w-20 h-20 text-[var(--dark-lighter)] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/></svg>
+            <h2 class="font-serif text-2xl text-[var(--gray)] mb-2">Your Cart is Empty</h2>
+            <p class="text-[var(--gray)] text-sm mb-6">Looks like you haven't added any watches yet.</p>
+            <a href="shop.html" class="btn-gold text-[var(--dark)] px-8 py-3 rounded-lg text-sm uppercase tracking-wider font-bold inline-block">Continue Shopping</a>
           </div>
         `;
         return;
@@ -88,9 +88,9 @@
         <div class="flex flex-col lg:flex-row gap-8">
           <!-- Cart Items -->
           <div class="flex-1">
-            <div class="bg-[#1A1A1A] rounded-xl border border-[#2A2A2A] overflow-hidden">
+            <div class="bg-[var(--dark-light)] rounded-xl border border-[var(--dark-lighter)] overflow-hidden">
               <!-- Header -->
-              <div class="hidden md:grid grid-cols-12 gap-4 px-6 py-4 bg-[#111] text-[#888] text-xs uppercase tracking-wider">
+              <div class="hidden md:grid grid-cols-12 gap-4 px-6 py-4 bg-[var(--dark-img)] text-[var(--gray)] text-xs uppercase tracking-wider">
                 <div class="col-span-6">Product</div>
                 <div class="col-span-2 text-center">Price</div>
                 <div class="col-span-2 text-center">Quantity</div>
@@ -101,29 +101,29 @@
                 const p = getProductById(item.id);
                 if (!p) return '';
                 return `
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center px-6 py-6 border-t border-[#2A2A2A]">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center px-6 py-6 border-t border-[var(--dark-lighter)]">
                   <div class="col-span-6 flex items-center gap-4">
                     <a href="product.html?id=${p.id}&name=${generateSlug(p.name)}">
                       <img src="${p.images[0]}" alt="${p.name}" class="w-20 h-20 rounded-lg object-cover">
                     </a>
                     <div>
-                      <p class="text-[#888] text-xs uppercase">${p.brand}</p>
-                      <a href="product.html?id=${p.id}&name=${generateSlug(p.name)}" class="text-white font-medium text-sm hover:text-[#C9A84C] transition-colors">${p.name}</a>
+                      <p class="text-[var(--gray)] text-xs uppercase">${p.brand}</p>
+                      <a href="product.html?id=${p.id}&name=${generateSlug(p.name)}" class="text-white font-medium text-sm hover:text-[var(--gold)] transition-colors">${p.name}</a>
                     </div>
                   </div>
                   <div class="col-span-2 text-center">
-                    <span class="text-[#CCC] text-sm">${formatPrice(p.price)}</span>
+                    <span class="text-[var(--gray-light)] text-sm">${formatPrice(p.price)}</span>
                   </div>
                   <div class="col-span-2 flex items-center justify-center">
-                    <div class="flex items-center border border-[#2A2A2A] rounded-lg">
-                      <button onclick="updateCartQty(${p.id}, ${item.qty - 1}); renderCartPage();" class="qty-btn px-3 py-1.5 text-[#CCC] text-sm border-r border-[#2A2A2A]">−</button>
+                    <div class="flex items-center border border-[var(--dark-lighter)] rounded-lg">
+                      <button onclick="updateCartQty(${p.id}, ${item.qty - 1}); renderCartPage();" class="qty-btn px-3 py-1.5 text-[var(--gray-light)] text-sm border-r border-[var(--dark-lighter)]">âˆ’</button>
                       <span class="px-4 py-1.5 text-white text-sm">${item.qty}</span>
-                      <button onclick="updateCartQty(${p.id}, ${item.qty + 1}); renderCartPage();" class="qty-btn px-3 py-1.5 text-[#CCC] text-sm border-l border-[#2A2A2A]">+</button>
+                      <button onclick="updateCartQty(${p.id}, ${item.qty + 1}); renderCartPage();" class="qty-btn px-3 py-1.5 text-[var(--gray-light)] text-sm border-l border-[var(--dark-lighter)]">+</button>
                     </div>
                   </div>
                   <div class="col-span-2 flex items-center justify-end gap-4">
-                    <span class="text-[#C9A84C] font-bold text-sm">${formatPrice(p.price * item.qty)}</span>
-                    <button onclick="removeFromCart(${p.id}); renderCartPage();" class="text-[#888] hover:text-red-500 transition-colors">
+                    <span class="text-[var(--gold)] font-bold text-sm">${formatPrice(p.price * item.qty)}</span>
+                    <button onclick="removeFromCart(${p.id}); renderCartPage();" class="text-[var(--gray)] hover:text-red-500 transition-colors">
                       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
                     </button>
                   </div>
@@ -132,37 +132,37 @@
               }).join('')}
             </div>
             <div class="flex justify-between mt-4">
-              <a href="shop.html" class="text-[#C9A84C] text-sm hover:underline flex items-center gap-1">
+              <a href="shop.html" class="text-[var(--gold)] text-sm hover:underline flex items-center gap-1">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
                 Continue Shopping
               </a>
-              <button onclick="clearCart(); renderCartPage();" class="text-[#888] text-sm hover:text-red-500 transition-colors">Clear Cart</button>
+              <button onclick="clearCart(); renderCartPage();" class="text-[var(--gray)] text-sm hover:text-red-500 transition-colors">Clear Cart</button>
             </div>
           </div>
 
           <!-- Order Summary -->
           <div class="w-full lg:w-80">
-            <div class="bg-[#1A1A1A] rounded-xl border border-[#2A2A2A] p-6 sticky top-24">
+            <div class="bg-[var(--dark-light)] rounded-xl border border-[var(--dark-lighter)] p-6 sticky top-24">
               <h3 class="text-white font-semibold text-lg mb-6">Order Summary</h3>
               <div class="space-y-3 mb-6">
                 <div class="flex justify-between text-sm">
-                  <span class="text-[#888]">Subtotal</span>
+                  <span class="text-[var(--gray)]">Subtotal</span>
                   <span class="text-white">${formatPrice(subtotal)}</span>
                 </div>
                 <div class="flex justify-between text-sm">
-                  <span class="text-[#888]">Shipping</span>
+                  <span class="text-[var(--gray)]">Shipping</span>
                   <span class="text-white">${shipping === 0 ? 'Free' : formatPrice(shipping)}</span>
                 </div>
-                ${shipping === 0 ? '<p class="text-green-400 text-xs">✓ Free shipping on orders over $500</p>' : ''}
-                <div class="border-t border-[#2A2A2A] pt-3 flex justify-between">
+                ${shipping === 0 ? '<p class="text-green-400 text-xs">âœ“ Free shipping on orders over $500</p>' : ''}
+                <div class="border-t border-[var(--dark-lighter)] pt-3 flex justify-between">
                   <span class="text-white font-semibold">Total</span>
-                  <span class="text-[#C9A84C] font-bold text-xl">${formatPrice(total)}</span>
+                  <span class="text-[var(--gold)] font-bold text-xl">${formatPrice(total)}</span>
                 </div>
               </div>
-              <a href="checkout.html" class="btn-gold block text-center text-[#0D0D0D] px-6 py-3 rounded-lg text-sm uppercase tracking-wider font-bold">
+              <a href="checkout.html" class="btn-gold block text-center text-[var(--dark)] px-6 py-3 rounded-lg text-sm uppercase tracking-wider font-bold">
                 Proceed to Checkout
               </a>
-              <div class="mt-4 flex items-center justify-center gap-2 text-[#888] text-xs">
+              <div class="mt-4 flex items-center justify-center gap-2 text-[var(--gray)] text-xs">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
                 Secure Checkout
               </div>

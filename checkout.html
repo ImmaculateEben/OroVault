@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout — OroVault</title>
+  <title>Checkout â€” OroVault</title>
   <meta name="description" content="Complete your purchase securely at OroVault. Multiple payment methods, worldwide shipping to 40+ countries, and 15 supported currencies.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -28,21 +28,21 @@
   </script>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-[#0D0D0D] text-[#F5F5F5] font-sans">
+<body class="bg-[var(--dark)] text-[var(--white)] font-sans">
 
   <!-- Navbar -->
   <div id="navbar-placeholder"></div>
 
   <!-- Page Header -->
-  <section class="pt-28 pb-8 bg-gradient-to-b from-[#1A1A1A] to-[#0D0D0D]">
+  <section class="pt-28 pb-8 bg-gradient-to-b from-[var(--dark-light)] to-[var(--dark)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h1 class="font-serif text-4xl md:text-5xl font-bold mb-2">Checkout</h1>
-      <p class="text-[#888] text-sm">
-        <a href="index.html" class="hover:text-[#C9A84C]">Home</a>
+      <p class="text-[var(--gray)] text-sm">
+        <a href="index.html" class="hover:text-[var(--gold)]">Home</a>
         <span class="mx-2">/</span>
-        <a href="cart.html" class="hover:text-[#C9A84C]">Cart</a>
+        <a href="cart.html" class="hover:text-[var(--gold)]">Cart</a>
         <span class="mx-2">/</span>
-        <span class="text-[#C9A84C]">Checkout</span>
+        <span class="text-[var(--gold)]">Checkout</span>
       </p>
     </div>
   </section>
@@ -55,118 +55,118 @@
         <!-- Form Sections -->
         <div class="flex-1 space-y-8">
           <!-- Contact Info -->
-          <div class="bg-[#1A1A1A] rounded-xl border border-[#2A2A2A] p-6">
+          <div class="bg-[var(--dark-light)] rounded-xl border border-[var(--dark-lighter)] p-6">
             <h3 class="text-white font-semibold text-lg mb-6 flex items-center gap-2">
-              <span class="w-7 h-7 rounded-full bg-[#C9A84C] text-[#0D0D0D] text-xs font-bold flex items-center justify-center">1</span>
+              <span class="w-7 h-7 rounded-full bg-[var(--gold)] text-[var(--dark)] text-xs font-bold flex items-center justify-center">1</span>
               Contact Information
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label class="text-[#888] text-xs uppercase tracking-wider mb-1 block">First Name *</label>
-                <input type="text" id="first-name" class="w-full bg-[#0D0D0D] border border-[#2A2A2A] rounded-lg px-4 py-3 text-white text-sm" placeholder="John">
+                <label class="text-[var(--gray)] text-xs uppercase tracking-wider mb-1 block">First Name *</label>
+                <input type="text" id="first-name" class="w-full bg-[var(--dark)] border border-[var(--dark-lighter)] rounded-lg px-4 py-3 text-white text-sm" placeholder="John">
                 <p id="first-name-error" class="text-red-500 text-xs mt-1 hidden">First name is required</p>
               </div>
               <div>
-                <label class="text-[#888] text-xs uppercase tracking-wider mb-1 block">Last Name *</label>
-                <input type="text" id="last-name" class="w-full bg-[#0D0D0D] border border-[#2A2A2A] rounded-lg px-4 py-3 text-white text-sm" placeholder="Doe">
+                <label class="text-[var(--gray)] text-xs uppercase tracking-wider mb-1 block">Last Name *</label>
+                <input type="text" id="last-name" class="w-full bg-[var(--dark)] border border-[var(--dark-lighter)] rounded-lg px-4 py-3 text-white text-sm" placeholder="Doe">
                 <p id="last-name-error" class="text-red-500 text-xs mt-1 hidden">Last name is required</p>
               </div>
               <div>
-                <label class="text-[#888] text-xs uppercase tracking-wider mb-1 block">Email *</label>
-                <input type="email" id="email" class="w-full bg-[#0D0D0D] border border-[#2A2A2A] rounded-lg px-4 py-3 text-white text-sm" placeholder="john@example.com">
+                <label class="text-[var(--gray)] text-xs uppercase tracking-wider mb-1 block">Email *</label>
+                <input type="email" id="email" class="w-full bg-[var(--dark)] border border-[var(--dark-lighter)] rounded-lg px-4 py-3 text-white text-sm" placeholder="john@example.com">
                 <p id="email-error" class="text-red-500 text-xs mt-1 hidden">Valid email is required</p>
               </div>
               <div>
-                <label class="text-[#888] text-xs uppercase tracking-wider mb-1 block">Phone *</label>
-                <input type="tel" id="phone" class="w-full bg-[#0D0D0D] border border-[#2A2A2A] rounded-lg px-4 py-3 text-white text-sm" placeholder="+1 (555) 000-0000">
+                <label class="text-[var(--gray)] text-xs uppercase tracking-wider mb-1 block">Phone *</label>
+                <input type="tel" id="phone" class="w-full bg-[var(--dark)] border border-[var(--dark-lighter)] rounded-lg px-4 py-3 text-white text-sm" placeholder="+1 (555) 000-0000">
                 <p id="phone-error" class="text-red-500 text-xs mt-1 hidden">Phone number is required</p>
               </div>
             </div>
           </div>
 
           <!-- Shipping Address -->
-          <div class="bg-[#1A1A1A] rounded-xl border border-[#2A2A2A] p-6">
+          <div class="bg-[var(--dark-light)] rounded-xl border border-[var(--dark-lighter)] p-6">
             <h3 class="text-white font-semibold text-lg mb-6 flex items-center gap-2">
-              <span class="w-7 h-7 rounded-full bg-[#C9A84C] text-[#0D0D0D] text-xs font-bold flex items-center justify-center">2</span>
+              <span class="w-7 h-7 rounded-full bg-[var(--gold)] text-[var(--dark)] text-xs font-bold flex items-center justify-center">2</span>
               Shipping Address
             </h3>
             <div class="space-y-4">
               <div>
-                <label class="text-[#888] text-xs uppercase tracking-wider mb-1 block">Country *</label>
-                <select id="country" class="w-full bg-[#0D0D0D] border border-[#2A2A2A] rounded-lg px-4 py-3 text-white text-sm">
-                  <option value="US">🇺🇸 United States</option>
-                  <option value="CA">🇨🇦 Canada</option>
-                  <option value="GB">🇬🇧 United Kingdom</option>
-                  <option value="AU">🇦🇺 Australia</option>
-                  <option value="DE">🇩🇪 Germany</option>
-                  <option value="FR">🇫🇷 France</option>
-                  <option value="JP">🇯🇵 Japan</option>
-                  <option value="CH">🇨🇭 Switzerland</option>
-                  <option value="IT">🇮🇹 Italy</option>
-                  <option value="ES">🇪🇸 Spain</option>
-                  <option value="NL">🇳🇱 Netherlands</option>
-                  <option value="BE">🇧🇪 Belgium</option>
-                  <option value="AT">🇦🇹 Austria</option>
-                  <option value="SE">🇸🇪 Sweden</option>
-                  <option value="NO">🇳🇴 Norway</option>
-                  <option value="DK">🇩🇰 Denmark</option>
-                  <option value="FI">🇫🇮 Finland</option>
-                  <option value="IE">🇮🇪 Ireland</option>
-                  <option value="PT">🇵🇹 Portugal</option>
-                  <option value="NZ">🇳🇿 New Zealand</option>
-                  <option value="SG">🇸🇬 Singapore</option>
-                  <option value="HK">🇭🇰 Hong Kong</option>
-                  <option value="KR">🇰🇷 South Korea</option>
-                  <option value="AE">🇦🇪 United Arab Emirates</option>
-                  <option value="SA">🇸🇦 Saudi Arabia</option>
-                  <option value="IN">🇮🇳 India</option>
-                  <option value="CN">🇨🇳 China</option>
-                  <option value="BR">🇧🇷 Brazil</option>
-                  <option value="MX">🇲🇽 Mexico</option>
-                  <option value="ZA">🇿🇦 South Africa</option>
-                  <option value="NG">🇳🇬 Nigeria</option>
-                  <option value="PL">🇵🇱 Poland</option>
-                  <option value="CZ">🇨🇿 Czech Republic</option>
-                  <option value="RO">🇷🇴 Romania</option>
-                  <option value="GR">🇬🇷 Greece</option>
-                  <option value="TR">🇹🇷 Turkey</option>
-                  <option value="TH">🇹🇭 Thailand</option>
-                  <option value="MY">🇲🇾 Malaysia</option>
-                  <option value="PH">🇵🇭 Philippines</option>
-                  <option value="ID">🇮🇩 Indonesia</option>
-                  <option value="VN">🇻🇳 Vietnam</option>
-                  <option value="TW">🇹🇼 Taiwan</option>
-                  <option value="IL">🇮🇱 Israel</option>
-                  <option value="EG">🇪🇬 Egypt</option>
-                  <option value="CL">🇨🇱 Chile</option>
-                  <option value="CO">🇨🇴 Colombia</option>
-                  <option value="AR">🇦🇷 Argentina</option>
-                  <option value="PE">🇵🇪 Peru</option>
+                <label class="text-[var(--gray)] text-xs uppercase tracking-wider mb-1 block">Country *</label>
+                <select id="country" class="w-full bg-[var(--dark)] border border-[var(--dark-lighter)] rounded-lg px-4 py-3 text-white text-sm">
+                  <option value="US">ðŸ‡ºðŸ‡¸ United States</option>
+                  <option value="CA">ðŸ‡¨ðŸ‡¦ Canada</option>
+                  <option value="GB">ðŸ‡¬ðŸ‡§ United Kingdom</option>
+                  <option value="AU">ðŸ‡¦ðŸ‡º Australia</option>
+                  <option value="DE">ðŸ‡©ðŸ‡ª Germany</option>
+                  <option value="FR">ðŸ‡«ðŸ‡· France</option>
+                  <option value="JP">ðŸ‡¯ðŸ‡µ Japan</option>
+                  <option value="CH">ðŸ‡¨ðŸ‡­ Switzerland</option>
+                  <option value="IT">ðŸ‡®ðŸ‡¹ Italy</option>
+                  <option value="ES">ðŸ‡ªðŸ‡¸ Spain</option>
+                  <option value="NL">ðŸ‡³ðŸ‡± Netherlands</option>
+                  <option value="BE">ðŸ‡§ðŸ‡ª Belgium</option>
+                  <option value="AT">ðŸ‡¦ðŸ‡¹ Austria</option>
+                  <option value="SE">ðŸ‡¸ðŸ‡ª Sweden</option>
+                  <option value="NO">ðŸ‡³ðŸ‡´ Norway</option>
+                  <option value="DK">ðŸ‡©ðŸ‡° Denmark</option>
+                  <option value="FI">ðŸ‡«ðŸ‡® Finland</option>
+                  <option value="IE">ðŸ‡®ðŸ‡ª Ireland</option>
+                  <option value="PT">ðŸ‡µðŸ‡¹ Portugal</option>
+                  <option value="NZ">ðŸ‡³ðŸ‡¿ New Zealand</option>
+                  <option value="SG">ðŸ‡¸ðŸ‡¬ Singapore</option>
+                  <option value="HK">ðŸ‡­ðŸ‡° Hong Kong</option>
+                  <option value="KR">ðŸ‡°ðŸ‡· South Korea</option>
+                  <option value="AE">ðŸ‡¦ðŸ‡ª United Arab Emirates</option>
+                  <option value="SA">ðŸ‡¸ðŸ‡¦ Saudi Arabia</option>
+                  <option value="IN">ðŸ‡®ðŸ‡³ India</option>
+                  <option value="CN">ðŸ‡¨ðŸ‡³ China</option>
+                  <option value="BR">ðŸ‡§ðŸ‡· Brazil</option>
+                  <option value="MX">ðŸ‡²ðŸ‡½ Mexico</option>
+                  <option value="ZA">ðŸ‡¿ðŸ‡¦ South Africa</option>
+                  <option value="NG">ðŸ‡³ðŸ‡¬ Nigeria</option>
+                  <option value="PL">ðŸ‡µðŸ‡± Poland</option>
+                  <option value="CZ">ðŸ‡¨ðŸ‡¿ Czech Republic</option>
+                  <option value="RO">ðŸ‡·ðŸ‡´ Romania</option>
+                  <option value="GR">ðŸ‡¬ðŸ‡· Greece</option>
+                  <option value="TR">ðŸ‡¹ðŸ‡· Turkey</option>
+                  <option value="TH">ðŸ‡¹ðŸ‡­ Thailand</option>
+                  <option value="MY">ðŸ‡²ðŸ‡¾ Malaysia</option>
+                  <option value="PH">ðŸ‡µðŸ‡­ Philippines</option>
+                  <option value="ID">ðŸ‡®ðŸ‡© Indonesia</option>
+                  <option value="VN">ðŸ‡»ðŸ‡³ Vietnam</option>
+                  <option value="TW">ðŸ‡¹ðŸ‡¼ Taiwan</option>
+                  <option value="IL">ðŸ‡®ðŸ‡± Israel</option>
+                  <option value="EG">ðŸ‡ªðŸ‡¬ Egypt</option>
+                  <option value="CL">ðŸ‡¨ðŸ‡± Chile</option>
+                  <option value="CO">ðŸ‡¨ðŸ‡´ Colombia</option>
+                  <option value="AR">ðŸ‡¦ðŸ‡· Argentina</option>
+                  <option value="PE">ðŸ‡µðŸ‡ª Peru</option>
                 </select>
               </div>
               <div>
-                <label class="text-[#888] text-xs uppercase tracking-wider mb-1 block">Street Address *</label>
-                <input type="text" id="address" class="w-full bg-[#0D0D0D] border border-[#2A2A2A] rounded-lg px-4 py-3 text-white text-sm" placeholder="123 Main Street">
+                <label class="text-[var(--gray)] text-xs uppercase tracking-wider mb-1 block">Street Address *</label>
+                <input type="text" id="address" class="w-full bg-[var(--dark)] border border-[var(--dark-lighter)] rounded-lg px-4 py-3 text-white text-sm" placeholder="123 Main Street">
                 <p id="address-error" class="text-red-500 text-xs mt-1 hidden">Address is required</p>
               </div>
               <div>
-                <label class="text-[#888] text-xs uppercase tracking-wider mb-1 block">Address Line 2</label>
-                <input type="text" id="address2" class="w-full bg-[#0D0D0D] border border-[#2A2A2A] rounded-lg px-4 py-3 text-white text-sm" placeholder="Apt, Suite, Unit (optional)">
+                <label class="text-[var(--gray)] text-xs uppercase tracking-wider mb-1 block">Address Line 2</label>
+                <input type="text" id="address2" class="w-full bg-[var(--dark)] border border-[var(--dark-lighter)] rounded-lg px-4 py-3 text-white text-sm" placeholder="Apt, Suite, Unit (optional)">
               </div>
               <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
-                  <label class="text-[#888] text-xs uppercase tracking-wider mb-1 block">City *</label>
-                  <input type="text" id="city" class="w-full bg-[#0D0D0D] border border-[#2A2A2A] rounded-lg px-4 py-3 text-white text-sm" placeholder="New York">
+                  <label class="text-[var(--gray)] text-xs uppercase tracking-wider mb-1 block">City *</label>
+                  <input type="text" id="city" class="w-full bg-[var(--dark)] border border-[var(--dark-lighter)] rounded-lg px-4 py-3 text-white text-sm" placeholder="New York">
                   <p id="city-error" class="text-red-500 text-xs mt-1 hidden">City is required</p>
                 </div>
                 <div>
-                  <label id="state-label" class="text-[#888] text-xs uppercase tracking-wider mb-1 block">State *</label>
-                  <input type="text" id="state" class="w-full bg-[#0D0D0D] border border-[#2A2A2A] rounded-lg px-4 py-3 text-white text-sm" placeholder="NY">
+                  <label id="state-label" class="text-[var(--gray)] text-xs uppercase tracking-wider mb-1 block">State *</label>
+                  <input type="text" id="state" class="w-full bg-[var(--dark)] border border-[var(--dark-lighter)] rounded-lg px-4 py-3 text-white text-sm" placeholder="NY">
                   <p id="state-error" class="text-red-500 text-xs mt-1 hidden">State / Province is required</p>
                 </div>
                 <div>
-                  <label id="zip-label" class="text-[#888] text-xs uppercase tracking-wider mb-1 block">ZIP Code *</label>
-                  <input type="text" id="zip" class="w-full bg-[#0D0D0D] border border-[#2A2A2A] rounded-lg px-4 py-3 text-white text-sm" placeholder="10001">
+                  <label id="zip-label" class="text-[var(--gray)] text-xs uppercase tracking-wider mb-1 block">ZIP Code *</label>
+                  <input type="text" id="zip" class="w-full bg-[var(--dark)] border border-[var(--dark-lighter)] rounded-lg px-4 py-3 text-white text-sm" placeholder="10001">
                   <p id="zip-error" class="text-red-500 text-xs mt-1 hidden">Postal code is required</p>
                 </div>
               </div>
@@ -174,107 +174,107 @@
           </div>
 
           <!-- Payment -->
-          <div class="bg-[#1A1A1A] rounded-xl border border-[#2A2A2A] p-6">
+          <div class="bg-[var(--dark-light)] rounded-xl border border-[var(--dark-lighter)] p-6">
             <h3 class="text-white font-semibold text-lg mb-6 flex items-center gap-2">
-              <span class="w-7 h-7 rounded-full bg-[#C9A84C] text-[#0D0D0D] text-xs font-bold flex items-center justify-center">3</span>
+              <span class="w-7 h-7 rounded-full bg-[var(--gold)] text-[var(--dark)] text-xs font-bold flex items-center justify-center">3</span>
               Payment Details
             </h3>
-            <p class="text-[#888] text-xs mb-4">This is a demo — no real payment will be processed.</p>
+            <p class="text-[var(--gray)] text-xs mb-4">This is a demo â€” no real payment will be processed.</p>
             
             <!-- Payment Method Selector -->
             <div class="flex gap-3 mb-6">
-              <button type="button" onclick="selectPaymentMethod('card')" id="pm-card" class="payment-method-btn flex-1 bg-[#0D0D0D] border-2 border-[#C9A84C] rounded-lg px-4 py-3 text-center transition-all">
-                <svg class="w-6 h-6 mx-auto mb-1 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+              <button type="button" onclick="selectPaymentMethod('card')" id="pm-card" class="payment-method-btn flex-1 bg-[var(--dark)] border-2 border-[var(--gold)] rounded-lg px-4 py-3 text-center transition-all">
+                <svg class="w-6 h-6 mx-auto mb-1 text-[var(--gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
                 <span class="text-white text-xs font-medium">Credit Card</span>
               </button>
-              <button type="button" onclick="selectPaymentMethod('paypal')" id="pm-paypal" class="payment-method-btn flex-1 bg-[#0D0D0D] border-2 border-[#2A2A2A] rounded-lg px-4 py-3 text-center transition-all hover:border-[#888]">
-                <svg class="w-6 h-6 mx-auto mb-1 text-[#888]" fill="currentColor" viewBox="0 0 24 24"><path d="M7.076 21.337H2.47a.641.641 0 01-.633-.74L4.944 2.9A.859.859 0 015.79 2.2h6.15c2.04 0 3.483.394 4.28 1.172.7.684.997 1.706.882 3.034-.019.218-.05.446-.09.69l-.003.02v.594l.462.262c.39.197.702.42.94.672.3.319.497.71.583 1.163.09.468.068 1.024-.066 1.654a5.6 5.6 0 01-.657 1.648 3.79 3.79 0 01-1.03 1.12c-.42.308-.927.534-1.508.672-.562.133-1.21.199-1.928.199H13.33a1.03 1.03 0 00-1.016.867l-.034.186-.573 3.636-.025.134a.86.86 0 01-.849.72H7.076z"/></svg>
-                <span class="text-[#888] text-xs font-medium">PayPal</span>
+              <button type="button" onclick="selectPaymentMethod('paypal')" id="pm-paypal" class="payment-method-btn flex-1 bg-[var(--dark)] border-2 border-[var(--dark-lighter)] rounded-lg px-4 py-3 text-center transition-all hover:border-[var(--gray)]">
+                <svg class="w-6 h-6 mx-auto mb-1 text-[var(--gray)]" fill="currentColor" viewBox="0 0 24 24"><path d="M7.076 21.337H2.47a.641.641 0 01-.633-.74L4.944 2.9A.859.859 0 015.79 2.2h6.15c2.04 0 3.483.394 4.28 1.172.7.684.997 1.706.882 3.034-.019.218-.05.446-.09.69l-.003.02v.594l.462.262c.39.197.702.42.94.672.3.319.497.71.583 1.163.09.468.068 1.024-.066 1.654a5.6 5.6 0 01-.657 1.648 3.79 3.79 0 01-1.03 1.12c-.42.308-.927.534-1.508.672-.562.133-1.21.199-1.928.199H13.33a1.03 1.03 0 00-1.016.867l-.034.186-.573 3.636-.025.134a.86.86 0 01-.849.72H7.076z"/></svg>
+                <span class="text-[var(--gray)] text-xs font-medium">PayPal</span>
               </button>
-              <button type="button" onclick="selectPaymentMethod('bank')" id="pm-bank" class="payment-method-btn flex-1 bg-[#0D0D0D] border-2 border-[#2A2A2A] rounded-lg px-4 py-3 text-center transition-all hover:border-[#888]">
-                <svg class="w-6 h-6 mx-auto mb-1 text-[#888]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-                <span class="text-[#888] text-xs font-medium">Bank Transfer</span>
+              <button type="button" onclick="selectPaymentMethod('bank')" id="pm-bank" class="payment-method-btn flex-1 bg-[var(--dark)] border-2 border-[var(--dark-lighter)] rounded-lg px-4 py-3 text-center transition-all hover:border-[var(--gray)]">
+                <svg class="w-6 h-6 mx-auto mb-1 text-[var(--gray)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                <span class="text-[var(--gray)] text-xs font-medium">Bank Transfer</span>
               </button>
             </div>
 
             <!-- Credit Card Fields -->
             <div id="payment-card" class="space-y-4">
               <div>
-                <label class="text-[#888] text-xs uppercase tracking-wider mb-1 block">Card Number *</label>
-                <input type="text" id="card-number" class="w-full bg-[#0D0D0D] border border-[#2A2A2A] rounded-lg px-4 py-3 text-white text-sm" placeholder="1234 5678 9012 3456" maxlength="19">
+                <label class="text-[var(--gray)] text-xs uppercase tracking-wider mb-1 block">Card Number *</label>
+                <input type="text" id="card-number" class="w-full bg-[var(--dark)] border border-[var(--dark-lighter)] rounded-lg px-4 py-3 text-white text-sm" placeholder="1234 5678 9012 3456" maxlength="19">
                 <p id="card-number-error" class="text-red-500 text-xs mt-1 hidden">Card number is required</p>
               </div>
               <div class="grid grid-cols-2 gap-4">
                 <div>
-                  <label class="text-[#888] text-xs uppercase tracking-wider mb-1 block">Expiry Date *</label>
-                  <input type="text" id="card-expiry" class="w-full bg-[#0D0D0D] border border-[#2A2A2A] rounded-lg px-4 py-3 text-white text-sm" placeholder="MM/YY" maxlength="5">
+                  <label class="text-[var(--gray)] text-xs uppercase tracking-wider mb-1 block">Expiry Date *</label>
+                  <input type="text" id="card-expiry" class="w-full bg-[var(--dark)] border border-[var(--dark-lighter)] rounded-lg px-4 py-3 text-white text-sm" placeholder="MM/YY" maxlength="5">
                   <p id="card-expiry-error" class="text-red-500 text-xs mt-1 hidden">Expiry date is required</p>
                 </div>
                 <div>
-                  <label class="text-[#888] text-xs uppercase tracking-wider mb-1 block">CVV *</label>
-                  <input type="text" id="card-cvv" class="w-full bg-[#0D0D0D] border border-[#2A2A2A] rounded-lg px-4 py-3 text-white text-sm" placeholder="123" maxlength="4">
+                  <label class="text-[var(--gray)] text-xs uppercase tracking-wider mb-1 block">CVV *</label>
+                  <input type="text" id="card-cvv" class="w-full bg-[var(--dark)] border border-[var(--dark-lighter)] rounded-lg px-4 py-3 text-white text-sm" placeholder="123" maxlength="4">
                   <p id="card-cvv-error" class="text-red-500 text-xs mt-1 hidden">CVV is required</p>
                 </div>
               </div>
               <div>
-                <label class="text-[#888] text-xs uppercase tracking-wider mb-1 block">Name on Card *</label>
-                <input type="text" id="card-name" class="w-full bg-[#0D0D0D] border border-[#2A2A2A] rounded-lg px-4 py-3 text-white text-sm" placeholder="John Doe">
+                <label class="text-[var(--gray)] text-xs uppercase tracking-wider mb-1 block">Name on Card *</label>
+                <input type="text" id="card-name" class="w-full bg-[var(--dark)] border border-[var(--dark-lighter)] rounded-lg px-4 py-3 text-white text-sm" placeholder="John Doe">
                 <p id="card-name-error" class="text-red-500 text-xs mt-1 hidden">Name on card is required</p>
               </div>
             </div>
 
             <!-- PayPal Fields -->
             <div id="payment-paypal" class="space-y-4 hidden">
-              <div class="bg-[#0D0D0D] border border-[#2A2A2A] rounded-lg p-6 text-center">
-                <svg class="w-12 h-12 mx-auto mb-3 text-[#C9A84C]" fill="currentColor" viewBox="0 0 24 24"><path d="M7.076 21.337H2.47a.641.641 0 01-.633-.74L4.944 2.9A.859.859 0 015.79 2.2h6.15c2.04 0 3.483.394 4.28 1.172.7.684.997 1.706.882 3.034-.019.218-.05.446-.09.69l-.003.02v.594l.462.262c.39.197.702.42.94.672.3.319.497.71.583 1.163.09.468.068 1.024-.066 1.654a5.6 5.6 0 01-.657 1.648 3.79 3.79 0 01-1.03 1.12c-.42.308-.927.534-1.508.672-.562.133-1.21.199-1.928.199H13.33a1.03 1.03 0 00-1.016.867l-.034.186-.573 3.636-.025.134a.86.86 0 01-.849.72H7.076z"/></svg>
+              <div class="bg-[var(--dark)] border border-[var(--dark-lighter)] rounded-lg p-6 text-center">
+                <svg class="w-12 h-12 mx-auto mb-3 text-[var(--gold)]" fill="currentColor" viewBox="0 0 24 24"><path d="M7.076 21.337H2.47a.641.641 0 01-.633-.74L4.944 2.9A.859.859 0 015.79 2.2h6.15c2.04 0 3.483.394 4.28 1.172.7.684.997 1.706.882 3.034-.019.218-.05.446-.09.69l-.003.02v.594l.462.262c.39.197.702.42.94.672.3.319.497.71.583 1.163.09.468.068 1.024-.066 1.654a5.6 5.6 0 01-.657 1.648 3.79 3.79 0 01-1.03 1.12c-.42.308-.927.534-1.508.672-.562.133-1.21.199-1.928.199H13.33a1.03 1.03 0 00-1.016.867l-.034.186-.573 3.636-.025.134a.86.86 0 01-.849.72H7.076z"/></svg>
                 <p class="text-white text-sm font-medium mb-1">Pay with PayPal</p>
-                <p class="text-[#888] text-xs">You will be redirected to PayPal to complete your payment securely.</p>
+                <p class="text-[var(--gray)] text-xs">You will be redirected to PayPal to complete your payment securely.</p>
               </div>
               <div>
-                <label class="text-[#888] text-xs uppercase tracking-wider mb-1 block">PayPal Email *</label>
-                <input type="email" id="paypal-email" class="w-full bg-[#0D0D0D] border border-[#2A2A2A] rounded-lg px-4 py-3 text-white text-sm" placeholder="you@example.com">
+                <label class="text-[var(--gray)] text-xs uppercase tracking-wider mb-1 block">PayPal Email *</label>
+                <input type="email" id="paypal-email" class="w-full bg-[var(--dark)] border border-[var(--dark-lighter)] rounded-lg px-4 py-3 text-white text-sm" placeholder="you@example.com">
                 <p id="paypal-email-error" class="text-red-500 text-xs mt-1 hidden">PayPal email is required</p>
               </div>
             </div>
 
             <!-- Bank Transfer Fields -->
             <div id="payment-bank" class="space-y-4 hidden">
-              <div class="bg-[#0D0D0D] border border-[#2A2A2A] rounded-lg p-6">
+              <div class="bg-[var(--dark)] border border-[var(--dark-lighter)] rounded-lg p-6">
                 <p class="text-white text-sm font-medium mb-3">Bank Transfer Instructions</p>
-                <p class="text-[#888] text-xs mb-3">After placing your order, you will receive bank transfer details via email. Your order will be processed once payment is confirmed.</p>
+                <p class="text-[var(--gray)] text-xs mb-3">After placing your order, you will receive bank transfer details via email. Your order will be processed once payment is confirmed.</p>
                 <div class="space-y-2 text-xs">
-                  <div class="flex justify-between"><span class="text-[#888]">Bank Name</span><span class="text-white">OroVault International</span></div>
-                  <div class="flex justify-between"><span class="text-[#888]">SWIFT/BIC</span><span class="text-white">CLXEUSXX</span></div>
-                  <div class="flex justify-between"><span class="text-[#888]">IBAN</span><span class="text-white">GB82 WEST 1234 5698 7654 32</span></div>
+                  <div class="flex justify-between"><span class="text-[var(--gray)]">Bank Name</span><span class="text-white">OroVault International</span></div>
+                  <div class="flex justify-between"><span class="text-[var(--gray)]">SWIFT/BIC</span><span class="text-white">CLXEUSXX</span></div>
+                  <div class="flex justify-between"><span class="text-[var(--gray)]">IBAN</span><span class="text-white">GB82 WEST 1234 5698 7654 32</span></div>
                 </div>
               </div>
               <div>
-                <label class="text-[#888] text-xs uppercase tracking-wider mb-1 block">Account Holder Name *</label>
-                <input type="text" id="bank-name" class="w-full bg-[#0D0D0D] border border-[#2A2A2A] rounded-lg px-4 py-3 text-white text-sm" placeholder="Your full name as on bank account">
+                <label class="text-[var(--gray)] text-xs uppercase tracking-wider mb-1 block">Account Holder Name *</label>
+                <input type="text" id="bank-name" class="w-full bg-[var(--dark)] border border-[var(--dark-lighter)] rounded-lg px-4 py-3 text-white text-sm" placeholder="Your full name as on bank account">
                 <p id="bank-name-error" class="text-red-500 text-xs mt-1 hidden">Account holder name is required</p>
               </div>
             </div>
           </div>
 
-          <button type="submit" class="btn-gold w-full text-[#0D0D0D] py-4 rounded-lg text-sm uppercase tracking-wider font-bold lg:hidden">
+          <button type="submit" class="btn-gold w-full text-[var(--dark)] py-4 rounded-lg text-sm uppercase tracking-wider font-bold lg:hidden">
             Place Order
           </button>
         </div>
 
         <!-- Order Summary Sidebar -->
         <div class="w-full lg:w-80">
-          <div class="bg-[#1A1A1A] rounded-xl border border-[#2A2A2A] p-6 sticky top-24">
+          <div class="bg-[var(--dark-light)] rounded-xl border border-[var(--dark-lighter)] p-6 sticky top-24">
             <h3 class="text-white font-semibold text-lg mb-6">Order Summary</h3>
             <div id="checkout-items" class="space-y-4 mb-6 max-h-64 overflow-y-auto">
               <!-- Filled by JS -->
             </div>
-            <div id="checkout-totals" class="space-y-3 border-t border-[#2A2A2A] pt-4 mb-6">
+            <div id="checkout-totals" class="space-y-3 border-t border-[var(--dark-lighter)] pt-4 mb-6">
               <!-- Filled by JS -->
             </div>
-            <button type="submit" class="btn-gold w-full text-[#0D0D0D] py-4 rounded-lg text-sm uppercase tracking-wider font-bold hidden lg:block">
+            <button type="submit" class="btn-gold w-full text-[var(--dark)] py-4 rounded-lg text-sm uppercase tracking-wider font-bold hidden lg:block">
               Place Order
             </button>
-            <div class="mt-4 flex items-center justify-center gap-2 text-[#888] text-xs">
+            <div class="mt-4 flex items-center justify-center gap-2 text-[var(--gray)] text-xs">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
               Secure 256-bit SSL Encryption
             </div>
@@ -301,7 +301,7 @@
       const totalsDiv = document.getElementById('checkout-totals');
 
       if (cart.length === 0) {
-        itemsDiv.innerHTML = '<p class="text-[#888] text-sm">Your cart is empty. <a href="shop.html" class="text-[#C9A84C] hover:underline">Shop now</a></p>';
+        itemsDiv.innerHTML = '<p class="text-[var(--gray)] text-sm">Your cart is empty. <a href="shop.html" class="text-[var(--gold)] hover:underline">Shop now</a></p>';
         return;
       }
 
@@ -313,9 +313,9 @@
             <img src="${p.images[0]}" alt="${p.name}" class="w-14 h-14 rounded-lg object-cover" onerror="handleImgError(this)">
             <div class="flex-1 min-w-0">
               <p class="text-white text-sm font-medium truncate">${p.name}</p>
-              <p class="text-[#888] text-xs">Qty: ${item.qty}</p>
+              <p class="text-[var(--gray)] text-xs">Qty: ${item.qty}</p>
             </div>
-            <span class="text-[#C9A84C] text-sm font-bold">${formatPrice(p.price * item.qty)}</span>
+            <span class="text-[var(--gold)] text-sm font-bold">${formatPrice(p.price * item.qty)}</span>
           </div>
         `;
       }).join('');
@@ -326,16 +326,16 @@
 
       totalsDiv.innerHTML = `
         <div class="flex justify-between text-sm">
-          <span class="text-[#888]">Subtotal</span>
+          <span class="text-[var(--gray)]">Subtotal</span>
           <span class="text-white">${formatPrice(subtotal)}</span>
         </div>
         <div class="flex justify-between text-sm">
-          <span class="text-[#888]">Shipping</span>
+          <span class="text-[var(--gray)]">Shipping</span>
           <span class="text-white">${shipping === 0 ? 'Free' : formatPrice(shipping)}</span>
         </div>
-        <div class="border-t border-[#2A2A2A] pt-3 flex justify-between">
+        <div class="border-t border-[var(--dark-lighter)] pt-3 flex justify-between">
           <span class="text-white font-semibold">Total</span>
-          <span class="text-[#C9A84C] font-bold text-xl">${formatPrice(total)}</span>
+          <span class="text-[var(--gold)] font-bold text-xl">${formatPrice(total)}</span>
         </div>
       `;
     });

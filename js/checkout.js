@@ -1,5 +1,5 @@
 // ============================================================
-// Watch Store — Checkout Form Validation & International Support
+// Watch Store â€” Checkout Form Validation & International Support
 // ============================================================
 
 let currentPaymentMethod = 'card';
@@ -22,7 +22,7 @@ const countryConfig = {
   NG: { stateLabel: 'State', zipLabel: 'Postal Code', zipPlaceholder: '100001' },
   SG: { stateLabel: 'District', zipLabel: 'Postal Code', zipPlaceholder: '018956' },
   NZ: { stateLabel: 'Region', zipLabel: 'Postcode', zipPlaceholder: '6011' },
-  MX: { stateLabel: 'State', zipLabel: 'Código Postal', zipPlaceholder: '06600' },
+  MX: { stateLabel: 'State', zipLabel: 'CÃ³digo Postal', zipPlaceholder: '06600' },
   ZA: { stateLabel: 'Province', zipLabel: 'Postal Code', zipPlaceholder: '0001' },
   default: { stateLabel: 'State / Province', zipLabel: 'Postal Code', zipPlaceholder: '00000' }
 };
@@ -77,24 +77,24 @@ function selectPaymentMethod(method) {
     const section = document.getElementById(`payment-${m}`);
 
     if (m === method) {
-      btn.classList.remove('border-[#2A2A2A]');
-      btn.classList.add('border-[#C9A84C]');
+      btn.classList.remove('border-[var(--dark-lighter)]');
+      btn.classList.add('border-[var(--gold)]');
       btn.querySelectorAll('svg, span').forEach(el => {
-        el.classList.remove('text-[#888]');
-        el.classList.add('text-[#C9A84C]');
+        el.classList.remove('text-[var(--gray)]');
+        el.classList.add('text-[var(--gold)]');
       });
       const spanEl = btn.querySelector('span');
-      if (spanEl) { spanEl.classList.remove('text-[#888]'); spanEl.classList.add('text-white'); }
+      if (spanEl) { spanEl.classList.remove('text-[var(--gray)]'); spanEl.classList.add('text-white'); }
       section.classList.remove('hidden');
     } else {
-      btn.classList.remove('border-[#C9A84C]');
-      btn.classList.add('border-[#2A2A2A]');
+      btn.classList.remove('border-[var(--gold)]');
+      btn.classList.add('border-[var(--dark-lighter)]');
       btn.querySelectorAll('svg').forEach(el => {
-        el.classList.remove('text-[#C9A84C]');
-        el.classList.add('text-[#888]');
+        el.classList.remove('text-[var(--gold)]');
+        el.classList.add('text-[var(--gray)]');
       });
       const spanEl = btn.querySelector('span');
-      if (spanEl) { spanEl.classList.remove('text-white'); spanEl.classList.add('text-[#888]'); }
+      if (spanEl) { spanEl.classList.remove('text-white'); spanEl.classList.add('text-[var(--gray)]'); }
       section.classList.add('hidden');
     }
   });
@@ -161,7 +161,7 @@ function validateField(input, fieldConfig) {
     errorEl.classList.toggle('hidden', valid);
   }
   input.classList.toggle('border-red-500', !valid);
-  input.classList.toggle('border-[#2A2A2A]', valid);
+  input.classList.toggle('border-[var(--dark-lighter)]', valid);
 
   return valid;
 }

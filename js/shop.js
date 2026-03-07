@@ -1,5 +1,5 @@
 // ============================================================
-// Watch Store — Shop Page Logic (Filter, Sort, Search)
+// Watch Store â€” Shop Page Logic (Filter, Sort, Search)
 // ============================================================
 
 let filteredProducts = [];
@@ -36,9 +36,9 @@ function initFilters() {
       <label class="flex items-center gap-2 cursor-pointer group">
         <input type="checkbox" value="${c}" ${currentFilters.category.includes(c) ? 'checked' : ''} 
           onchange="toggleFilter('category', '${c}')" 
-          class="filter-checkbox w-4 h-4 rounded border-[#2A2A2A] bg-[#1A1A1A]">
-        <span class="text-[#CCC] text-sm group-hover:text-[#C9A84C] transition-colors">${c}</span>
-        <span class="text-[#888] text-xs ml-auto">(${getProductsByCategory(c).length})</span>
+          class="filter-checkbox w-4 h-4 rounded border-[var(--dark-lighter)] bg-[var(--dark-light)]">
+        <span class="text-[var(--gray-light)] text-sm group-hover:text-[var(--gold)] transition-colors">${c}</span>
+        <span class="text-[var(--gray)] text-xs ml-auto">(${getProductsByCategory(c).length})</span>
       </label>
     `).join('');
   }
@@ -50,9 +50,9 @@ function initFilters() {
       <label class="flex items-center gap-2 cursor-pointer group">
         <input type="checkbox" value="${b}" 
           onchange="toggleFilter('brand', '${b}')" 
-          class="filter-checkbox w-4 h-4 rounded border-[#2A2A2A] bg-[#1A1A1A]">
-        <span class="text-[#CCC] text-sm group-hover:text-[#C9A84C] transition-colors">${b}</span>
-        <span class="text-[#888] text-xs ml-auto">(${getProductsByBrand(b).length})</span>
+          class="filter-checkbox w-4 h-4 rounded border-[var(--dark-lighter)] bg-[var(--dark-light)]">
+        <span class="text-[var(--gray-light)] text-sm group-hover:text-[var(--gold)] transition-colors">${b}</span>
+        <span class="text-[var(--gray)] text-xs ml-auto">(${getProductsByBrand(b).length})</span>
       </label>
     `).join('');
   }
@@ -63,7 +63,7 @@ function initFilters() {
     priceRange.value = currentFilters.maxPrice;
     priceRange.addEventListener('input', (e) => {
       currentFilters.maxPrice = parseInt(e.target.value);
-      document.getElementById('price-value').textContent = `$0 — $${parseInt(e.target.value).toLocaleString()}`;
+      document.getElementById('price-value').textContent = `$0 â€” $${parseInt(e.target.value).toLocaleString()}`;
       applyFilters();
     });
   }
@@ -72,8 +72,8 @@ function initFilters() {
   const ratingBtns = document.querySelectorAll('.rating-filter-btn');
   ratingBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      ratingBtns.forEach(b => b.classList.remove('text-[#C9A84C]', 'border-[#C9A84C]'));
-      btn.classList.add('text-[#C9A84C]', 'border-[#C9A84C]');
+      ratingBtns.forEach(b => b.classList.remove('text-[var(--gold)]', 'border-[var(--gold)]'));
+      btn.classList.add('text-[var(--gold)]', 'border-[var(--gold)]');
       currentFilters.minRating = parseFloat(btn.dataset.rating);
       applyFilters();
     });
@@ -175,9 +175,9 @@ function renderProducts() {
   if (filteredProducts.length === 0) {
     grid.innerHTML = `
       <div class="col-span-full text-center py-20">
-        <svg class="w-16 h-16 text-[#2A2A2A] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-        <h3 class="text-xl font-serif text-[#888] mb-2">No watches found</h3>
-        <p class="text-[#888] text-sm">Try adjusting your filters or search term</p>
+        <svg class="w-16 h-16 text-[var(--dark-lighter)] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <h3 class="text-xl font-serif text-[var(--gray)] mb-2">No watches found</h3>
+        <p class="text-[var(--gray)] text-sm">Try adjusting your filters or search term</p>
         <button onclick="clearAllFilters()" class="mt-4 btn-outline-gold px-6 py-2 rounded-lg text-sm">Clear All Filters</button>
       </div>
     `;
@@ -202,13 +202,13 @@ function clearAllFilters() {
   const priceRange = document.getElementById('price-range');
   if (priceRange) priceRange.value = 10000;
   const priceValue = document.getElementById('price-value');
-  if (priceValue) priceValue.textContent = '$0 — $10,000';
+  if (priceValue) priceValue.textContent = '$0 â€” $10,000';
   const searchInput = document.getElementById('shop-search');
   if (searchInput) searchInput.value = '';
   const sortSelect = document.getElementById('sort-select');
   if (sortSelect) sortSelect.value = 'featured';
   document.querySelectorAll('.rating-filter-btn').forEach(b => {
-    b.classList.remove('text-[#C9A84C]', 'border-[#C9A84C]');
+    b.classList.remove('text-[var(--gold)]', 'border-[var(--gold)]');
   });
   applyFilters();
 }

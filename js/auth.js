@@ -1,5 +1,5 @@
 // ============================================================
-// Watch Store — Auth (Login / Register) Tab Toggle
+// Watch Store â€” Auth (Login / Register) Tab Toggle
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     loginTab.addEventListener('click', () => {
       loginTab.classList.add('auth-tab', 'active');
       registerTab.classList.remove('auth-tab', 'active');
-      registerTab.classList.add('text-[#888]');
-      loginTab.classList.remove('text-[#888]');
+      registerTab.classList.add('text-[var(--gray)]');
+      loginTab.classList.remove('text-[var(--gray)]');
       loginForm.classList.remove('hidden');
       registerForm.classList.add('hidden');
     });
@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     registerTab.addEventListener('click', () => {
       registerTab.classList.add('auth-tab', 'active');
       loginTab.classList.remove('auth-tab', 'active');
-      loginTab.classList.add('text-[#888]');
-      registerTab.classList.remove('text-[#888]');
+      loginTab.classList.add('text-[var(--gray)]');
+      registerTab.classList.remove('text-[var(--gray)]');
       registerForm.classList.remove('hidden');
       loginForm.classList.add('hidden');
     });
@@ -50,4 +50,28 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     showToast('Account created! (Demo)');
   });
+
+  document.getElementById('forgot-form')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    showToast('Password reset link sent! Check your email. (Demo)');
+  });
 });
+
+function showForgotPassword(e) {
+  e.preventDefault();
+  document.getElementById('login-form').classList.add('hidden');
+  document.getElementById('register-form').classList.add('hidden');
+  document.getElementById('forgot-form').classList.remove('hidden');
+  // Hide tabs
+  document.getElementById('login-tab').parentElement.classList.add('hidden');
+}
+
+function showLoginForm(e) {
+  e.preventDefault();
+  document.getElementById('forgot-form').classList.add('hidden');
+  document.getElementById('login-form').classList.remove('hidden');
+  // Show tabs and set login active
+  const tabRow = document.getElementById('login-tab').parentElement;
+  tabRow.classList.remove('hidden');
+  document.getElementById('login-tab').click();
+}

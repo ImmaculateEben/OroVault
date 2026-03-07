@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wishlist — OroVault</title>
+  <title>Wishlist â€” OroVault</title>
   <meta name="description" content="Your saved watches at OroVault. Keep track of your favourite timepieces and add them to cart when you're ready.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -28,19 +28,19 @@
   </script>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-[#0D0D0D] text-[#F5F5F5] font-sans">
+<body class="bg-[var(--dark)] text-[var(--white)] font-sans">
 
   <!-- Navbar -->
   <div id="navbar-placeholder"></div>
 
   <!-- Page Header -->
-  <section class="pt-28 pb-8 bg-gradient-to-b from-[#1A1A1A] to-[#0D0D0D]">
+  <section class="pt-28 pb-8 bg-gradient-to-b from-[var(--dark-light)] to-[var(--dark)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h1 class="font-serif text-4xl md:text-5xl font-bold mb-2">Wishlist</h1>
-      <p class="text-[#888] text-sm">
-        <a href="index.html" class="hover:text-[#C9A84C]">Home</a>
+      <p class="text-[var(--gray)] text-sm">
+        <a href="index.html" class="hover:text-[var(--gold)]">Home</a>
         <span class="mx-2">/</span>
-        <span class="text-[#C9A84C]">Wishlist</span>
+        <span class="text-[var(--gold)]">Wishlist</span>
       </p>
     </div>
   </section>
@@ -71,10 +71,10 @@
       if (wishlist.length === 0) {
         container.innerHTML = `
           <div class="text-center py-20">
-            <svg class="w-20 h-20 text-[#2A2A2A] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-            <h2 class="font-serif text-2xl text-[#888] mb-2">Your Wishlist is Empty</h2>
-            <p class="text-[#888] text-sm mb-6">Save your favorite timepieces for later.</p>
-            <a href="shop.html" class="btn-gold text-[#0D0D0D] px-8 py-3 rounded-lg text-sm uppercase tracking-wider font-bold inline-block">Browse Collection</a>
+            <svg class="w-20 h-20 text-[var(--dark-lighter)] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            <h2 class="font-serif text-2xl text-[var(--gray)] mb-2">Your Wishlist is Empty</h2>
+            <p class="text-[var(--gray)] text-sm mb-6">Save your favorite timepieces for later.</p>
+            <a href="shop.html" class="btn-gold text-[var(--dark)] px-8 py-3 rounded-lg text-sm uppercase tracking-wider font-bold inline-block">Browse Collection</a>
           </div>
         `;
         return;
@@ -84,30 +84,30 @@
 
       container.innerHTML = `
         <div class="flex items-center justify-between mb-6">
-          <p class="text-[#888] text-sm">${wishlist.length} item${wishlist.length !== 1 ? 's' : ''} saved</p>
+          <p class="text-[var(--gray)] text-sm">${wishlist.length} item${wishlist.length !== 1 ? 's' : ''} saved</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           ${wishlistProducts.map(p => `
-            <div class="bg-[#1A1A1A] rounded-xl overflow-hidden border border-[#2A2A2A]">
+            <div class="bg-[var(--dark-light)] rounded-xl overflow-hidden border border-[var(--dark-lighter)]">
               <a href="product.html?id=${p.id}&name=${generateSlug(p.name)}">
                 <div class="aspect-square overflow-hidden">
                   <img src="${p.images[0]}" alt="${p.name}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
                 </div>
               </a>
               <div class="p-4">
-                <p class="text-[#888] text-xs uppercase tracking-wider mb-1">${p.brand}</p>
-                <a href="product.html?id=${p.id}&name=${generateSlug(p.name)}"><h3 class="text-white font-medium text-sm mb-2 hover:text-[#C9A84C] transition-colors">${p.name}</h3></a>
+                <p class="text-[var(--gray)] text-xs uppercase tracking-wider mb-1">${p.brand}</p>
+                <a href="product.html?id=${p.id}&name=${generateSlug(p.name)}"><h3 class="text-white font-medium text-sm mb-2 hover:text-[var(--gold)] transition-colors">${p.name}</h3></a>
                 <div class="flex items-center gap-2 mb-4">
-                  <span class="text-[#C9A84C] font-bold">$${p.price.toLocaleString()}</span>
-                  ${p.originalPrice ? `<span class="text-[#888] text-sm line-through">$${p.originalPrice.toLocaleString()}</span>` : ''}
+                  <span class="text-[var(--gold)] font-bold">$${p.price.toLocaleString()}</span>
+                  ${p.originalPrice ? `<span class="text-[var(--gray)] text-sm line-through">$${p.originalPrice.toLocaleString()}</span>` : ''}
                 </div>
                 <div class="flex gap-2">
                   ${p.inStock ? `
-                  <button onclick="addToCart(${p.id}); removeFromWishlist(${p.id}); renderWishlistPage();" class="btn-gold flex-1 text-[#0D0D0D] py-2 rounded-lg text-xs font-bold uppercase">Move to Cart</button>
+                  <button onclick="addToCart(${p.id}); removeFromWishlist(${p.id}); renderWishlistPage();" class="btn-gold flex-1 text-[var(--dark)] py-2 rounded-lg text-xs font-bold uppercase">Move to Cart</button>
                   ` : `
-                  <button disabled class="flex-1 bg-[#2A2A2A] text-[#888] py-2 rounded-lg text-xs font-bold uppercase cursor-not-allowed">Out of Stock</button>
+                  <button disabled class="flex-1 bg-[var(--dark-lighter)] text-[var(--gray)] py-2 rounded-lg text-xs font-bold uppercase cursor-not-allowed">Out of Stock</button>
                   `}
-                  <button onclick="removeFromWishlist(${p.id}); renderWishlistPage();" class="border border-[#2A2A2A] text-[#888] hover:text-red-500 hover:border-red-500 px-3 py-2 rounded-lg transition-colors">
+                  <button onclick="removeFromWishlist(${p.id}); renderWishlistPage();" class="border border-[var(--dark-lighter)] text-[var(--gray)] hover:text-red-500 hover:border-red-500 px-3 py-2 rounded-lg transition-colors">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
                   </button>
                 </div>
