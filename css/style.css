@@ -26,22 +26,6 @@
   --green: #2ECC71;
 }
 
-/* ── Light Theme ──────────────────────────────────────────── */
-[data-theme="light"] {
-  --dark: #FFFFFF;
-  --dark-deeper: #F3F4F6;
-  --dark-img: #E5E7EB;
-  --dark-light: #F0F0F0;
-  --dark-lighter: #D1D5DB;
-  --gray-darkest: #9CA3AF;
-  --gray-darker: #6B7280;
-  --gray-dark: #6B7280;
-  --gray: #6B7280;
-  --gray-light: #374151;
-  --white: #111827;
-  --text-primary: #111827;
-}
-
 /* ── Base Resets ─────────────────────────────────────────── */
 * {
   margin: 0;
@@ -92,38 +76,6 @@ img {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--gold);
-}
-
-/* ── Light Theme Overrides ───────────────────────────────── */
-[data-theme="light"] .text-white {
-  color: var(--text-primary);
-}
-[data-theme="light"] .hover\:text-white:hover {
-  color: var(--text-primary);
-}
-/* Keep white text on image overlays, dark backgrounds, and cards with images */
-[data-theme="light"] .bg-black\/40 .text-white,
-[data-theme="light"] .bg-black\/60 .text-white,
-[data-theme="light"] .bg-black\/80 .text-white,
-[data-theme="light"] [class*="bg-black"] .text-white,
-[data-theme="light"] .keep-white .text-white,
-[data-theme="light"] .keep-white.text-white {
-  color: #FFFFFF;
-}
-[data-theme="light"] .product-card .text-white {
-  color: var(--text-primary);
-}
-[data-theme="light"] .product-card .product-overlay .text-white,
-[data-theme="light"] .product-card .product-overlay button {
-  color: #FFFFFF;
-}
-[data-theme="light"] .btn-gold {
-  color: #0D0D0D;
-}
-
-/* Theme toggle transition */
-[data-theme] * {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 /* ── Animations ─────────────────────────────────────────── */

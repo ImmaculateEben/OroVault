@@ -202,11 +202,6 @@ function getNavbarHTML() {
           <button onclick="toggleSearch()" class="hidden md:block text-[var(--gray-light)] hover:text-[var(--gold)] transition-colors">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
           </button>
-          <!-- Theme Toggle -->
-          <button onclick="toggleTheme()" class="text-[var(--gray-light)] hover:text-[var(--gold)] transition-colors" title="Toggle theme">
-            <svg id="theme-icon-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-            <svg id="theme-icon-moon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
-          </button>
           <!-- Auth -->
           <a href="auth.html" class="text-[var(--gray-light)] hover:text-[var(--gold)] transition-colors">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
@@ -257,17 +252,10 @@ function getNavbarHTML() {
       <a href="auth.html" class="text-lg uppercase tracking-wider text-[var(--gray-light)] hover:text-[var(--gold)]">Account</a>
       <a href="wishlist.html" class="text-lg uppercase tracking-wider text-[var(--gray-light)] hover:text-[var(--gold)]">Wishlist</a>
       <a href="cart.html" class="text-lg uppercase tracking-wider text-[var(--gray-light)] hover:text-[var(--gold)]">Cart</a>
-      <div class="pt-4 border-t border-[var(--dark-lighter)] mt-2">
-        <button onclick="toggleTheme()" class="flex items-center gap-3 text-[var(--gray-light)] hover:text-[var(--gold)] w-full mb-4">
-          <svg class="w-5 h-5 theme-mob-sun hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-          <svg class="w-5 h-5 theme-mob-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
-          <span class="text-lg uppercase tracking-wider" id="theme-label-mob">Light Mode</span>
-        </button>
-      </div>
       <div class="pt-4 border-t border-[var(--dark-lighter)]">
         <p class="text-[var(--gray)] text-xs uppercase tracking-wider mb-3">Currency</p>
         <select onchange="setCurrency(this.value)" class="w-full bg-[var(--dark-light)] border border-[var(--dark-lighter)] rounded-lg px-3 py-2 text-white text-sm">
-          ${typeof getAllCurrencies === 'function' ? Object.values(getAllCurrencies()).map(c => `<option value="${c.code}" ${c.code === getCurrency().code ? 'selected' : ''}>${c.flag} ${c.code} â€” ${c.name}</option>`).join('') : '<option value="USD">ðŸ‡ºðŸ‡¸ USD</option>'}
+          ${typeof getAllCurrencies === 'function' ? Object.values(getAllCurrencies()).map(c => `<option value="${c.code}" ${c.code === getCurrency().code ? 'selected' : ''}>${c.flag} ${c.code} - ${c.name}</option>`).join('') : '<option value="USD">USD</option>'}
         </select>
       </div>
     </div>
@@ -382,52 +370,6 @@ function initPage() {
   if (navPlaceholder) navPlaceholder.innerHTML = getNavbarHTML();
   if (footerPlaceholder) footerPlaceholder.innerHTML = getFooterHTML();
   initMobileNav();
-  initThemeIcons();
 }
 
 document.addEventListener('DOMContentLoaded', initPage);
-
-// ── Theme Toggle ────────────────────────────────────────
-function toggleTheme() {
-  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-  const newTheme = isLight ? 'dark' : 'light';
-  document.documentElement.setAttribute('data-theme', newTheme);
-  localStorage.setItem('orovault_theme', newTheme);
-  updateThemeIcons(newTheme);
-}
-
-function updateThemeIcons(theme) {
-  const sun = document.getElementById('theme-icon-sun');
-  const moon = document.getElementById('theme-icon-moon');
-  const mobSuns = document.querySelectorAll('.theme-mob-sun');
-  const mobMoons = document.querySelectorAll('.theme-mob-moon');
-  const mobLabel = document.getElementById('theme-label-mob');
-
-  if (theme === 'light') {
-    if (sun) { sun.classList.remove('hidden'); }
-    if (moon) { moon.classList.add('hidden'); }
-    mobSuns.forEach(el => el.classList.remove('hidden'));
-    mobMoons.forEach(el => el.classList.add('hidden'));
-    if (mobLabel) mobLabel.textContent = 'Dark Mode';
-  } else {
-    if (sun) { sun.classList.add('hidden'); }
-    if (moon) { moon.classList.remove('hidden'); }
-    mobSuns.forEach(el => el.classList.add('hidden'));
-    mobMoons.forEach(el => el.classList.remove('hidden'));
-    if (mobLabel) mobLabel.textContent = 'Light Mode';
-  }
-}
-
-function initThemeIcons() {
-  const saved = localStorage.getItem('orovault_theme');
-  if (saved) {
-    document.documentElement.setAttribute('data-theme', saved);
-    updateThemeIcons(saved);
-  }
-}
-
-// Apply saved theme instantly (before DOM ready) to prevent flash
-(function() {
-  const saved = localStorage.getItem('orovault_theme');
-  if (saved) document.documentElement.setAttribute('data-theme', saved);
-})();
