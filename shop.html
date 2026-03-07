@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop — OroVault</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: '#C9A84C',
+            'gold-light': '#E0C97F',
+            'gold-dark': '#A68A3E',
+            dark: '#0D0D0D',
+            'dark-light': '#1A1A1A',
+            'dark-lighter': '#2A2A2A',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#0D0D0D] text-[#F5F5F5] font-sans">
+
+  <!-- Navbar -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- Page Header -->
+  <section class="pt-28 pb-8 bg-gradient-to-b from-[#1A1A1A] to-[#0D0D0D]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-2">Our Collection</h1>
+        <p class="text-[#888] text-sm">
+          <a href="index.html" class="hover:text-[#C9A84C] transition-colors">Home</a>
+          <span class="mx-2">/</span>
+          <span class="text-[#C9A84C]">Shop</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop Content -->
+  <section class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row gap-8">
+
+        <!-- Mobile Filter Toggle -->
+        <button onclick="toggleMobileFilters()" class="lg:hidden flex items-center justify-center gap-2 bg-[#1A1A1A] border border-[#2A2A2A] rounded-lg px-4 py-3 text-sm">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/></svg>
+          Filters
+        </button>
+
+        <!-- Sidebar Filters -->
+        <aside id="filter-sidebar" class="hidden lg:block w-full lg:w-64 flex-shrink-0">
+          <div class="bg-[#1A1A1A] rounded-xl border border-[#2A2A2A] p-6 sticky top-24">
+            <div class="flex items-center justify-between mb-6">
+              <h3 class="text-white font-semibold uppercase tracking-wider text-sm">Filters</h3>
+              <button onclick="clearAllFilters()" class="text-[#C9A84C] text-xs hover:underline">Clear All</button>
+            </div>
+
+            <!-- Search -->
+            <div class="mb-6">
+              <label class="text-[#888] text-xs uppercase tracking-wider mb-2 block">Search</label>
+              <input type="text" id="shop-search" placeholder="Search watches..." class="w-full bg-[#0D0D0D] border border-[#2A2A2A] rounded-lg px-3 py-2 text-sm text-white">
+            </div>
+
+            <!-- Categories -->
+            <div class="mb-6">
+              <label class="text-[#888] text-xs uppercase tracking-wider mb-3 block">Category</label>
+              <div id="filter-categories" class="space-y-2">
+                <!-- Filled by JS -->
+              </div>
+            </div>
+
+            <!-- Brands -->
+            <div class="mb-6">
+              <label class="text-[#888] text-xs uppercase tracking-wider mb-3 block">Brand</label>
+              <div id="filter-brands" class="space-y-2 max-h-48 overflow-y-auto">
+                <!-- Filled by JS -->
+              </div>
+            </div>
+
+            <!-- Price Range -->
+            <div class="mb-6">
+              <label class="text-[#888] text-xs uppercase tracking-wider mb-3 block">Price Range</label>
+              <input type="range" id="price-range" min="0" max="10000" value="10000" step="100" class="w-full">
+              <p id="price-value" class="text-[#CCC] text-sm mt-2">$0 — $10,000</p>
+            </div>
+
+            <!-- Rating -->
+            <div>
+              <label class="text-[#888] text-xs uppercase tracking-wider mb-3 block">Minimum Rating</label>
+              <div class="flex gap-2">
+                <button data-rating="4" class="rating-filter-btn border border-[#2A2A2A] rounded-lg px-3 py-1 text-xs text-[#CCC] hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors">4+</button>
+                <button data-rating="4.5" class="rating-filter-btn border border-[#2A2A2A] rounded-lg px-3 py-1 text-xs text-[#CCC] hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors">4.5+</button>
+                <button data-rating="4.8" class="rating-filter-btn border border-[#2A2A2A] rounded-lg px-3 py-1 text-xs text-[#CCC] hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors">4.8+</button>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1">
+          <!-- Top Bar -->
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+            <p id="product-count" class="text-[#888] text-sm">0 watches</p>
+            <div class="flex items-center gap-4">
+              <select id="sort-select" class="bg-[#1A1A1A] border border-[#2A2A2A] rounded-lg px-3 py-2 text-sm text-white cursor-pointer">
+                <option value="featured">Featured</option>
+                <option value="newest">Newest</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="rating">Highest Rated</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Product Grid -->
+          <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+            <!-- Filled by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/currency.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>
