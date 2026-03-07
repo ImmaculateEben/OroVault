@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wishlist — OroVault</title>
+  <meta name="description" content="Your saved watches at OroVault. Keep track of your favourite timepieces and add them to cart when you're ready.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -88,14 +89,14 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           ${wishlistProducts.map(p => `
             <div class="bg-[#1A1A1A] rounded-xl overflow-hidden border border-[#2A2A2A]">
-              <a href="product.html?id=${p.id}">
+              <a href="product.html?id=${p.id}&name=${generateSlug(p.name)}">
                 <div class="aspect-square overflow-hidden">
                   <img src="${p.images[0]}" alt="${p.name}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
                 </div>
               </a>
               <div class="p-4">
                 <p class="text-[#888] text-xs uppercase tracking-wider mb-1">${p.brand}</p>
-                <a href="product.html?id=${p.id}"><h3 class="text-white font-medium text-sm mb-2 hover:text-[#C9A84C] transition-colors">${p.name}</h3></a>
+                <a href="product.html?id=${p.id}&name=${generateSlug(p.name)}"><h3 class="text-white font-medium text-sm mb-2 hover:text-[#C9A84C] transition-colors">${p.name}</h3></a>
                 <div class="flex items-center gap-2 mb-4">
                   <span class="text-[#C9A84C] font-bold">$${p.price.toLocaleString()}</span>
                   ${p.originalPrice ? `<span class="text-[#888] text-sm line-through">$${p.originalPrice.toLocaleString()}</span>` : ''}

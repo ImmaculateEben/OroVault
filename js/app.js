@@ -113,7 +113,7 @@ function renderProductCard(product) {
   return `
     <div class="product-card bg-[#1A1A1A] rounded-xl overflow-hidden group cursor-pointer relative">
       <div class="product-image relative aspect-square bg-[#111]">
-        <a href="product.html?id=${product.id}">
+        <a href="${productURL(product)}">
           <img src="${product.images[0]}" alt="${product.name}" class="w-full h-full object-cover" loading="lazy" onerror="handleImgError(this)">
         </a>
         <div class="product-overlay absolute inset-0 bg-black/40 flex items-center justify-center gap-3">
@@ -130,7 +130,7 @@ function renderProductCard(product) {
       </div>
       <div class="p-4">
         <p class="text-[#888] text-xs uppercase tracking-wider mb-1">${product.brand}</p>
-        <a href="product.html?id=${product.id}">
+        <a href="${productURL(product)}">
           <h3 class="text-white font-medium text-sm mb-2 hover:text-[#C9A84C] transition-colors line-clamp-1">${product.name}</h3>
         </a>
         <div class="flex items-center gap-1 mb-2">
@@ -352,7 +352,7 @@ function handleNavSearch(query) {
     resultsDiv.innerHTML = '<p class="p-4 text-[#888] text-sm">No watches found</p>';
   } else {
     resultsDiv.innerHTML = results.map(p => `
-      <a href="product.html?id=${p.id}" class="flex items-center gap-3 p-3 hover:bg-[#2A2A2A] transition-colors">
+      <a href="product.html?id=${p.id}&name=${generateSlug(p.name)}" class="flex items-center gap-3 p-3 hover:bg-[#2A2A2A] transition-colors">
         <img src="${p.images[0]}" alt="${p.name}" class="w-12 h-12 rounded object-cover" onerror="handleImgError(this)">
         <div>
           <p class="text-white text-sm font-medium">${p.name}</p>

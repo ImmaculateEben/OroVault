@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shopping Cart — OroVault</title>
+  <meta name="description" content="Review your selected watches and proceed to secure checkout at OroVault. Free worldwide shipping on all orders.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -102,12 +103,12 @@
                 return `
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center px-6 py-6 border-t border-[#2A2A2A]">
                   <div class="col-span-6 flex items-center gap-4">
-                    <a href="product.html?id=${p.id}">
+                    <a href="product.html?id=${p.id}&name=${generateSlug(p.name)}">
                       <img src="${p.images[0]}" alt="${p.name}" class="w-20 h-20 rounded-lg object-cover">
                     </a>
                     <div>
                       <p class="text-[#888] text-xs uppercase">${p.brand}</p>
-                      <a href="product.html?id=${p.id}" class="text-white font-medium text-sm hover:text-[#C9A84C] transition-colors">${p.name}</a>
+                      <a href="product.html?id=${p.id}&name=${generateSlug(p.name)}" class="text-white font-medium text-sm hover:text-[#C9A84C] transition-colors">${p.name}</a>
                     </div>
                   </div>
                   <div class="col-span-2 text-center">

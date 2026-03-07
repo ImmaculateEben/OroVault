@@ -21,6 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
+  // Ensure URL has the slug for SEO / shareability
+  const slug = generateSlug(currentProduct.name);
+  if (params.get('name') !== slug) {
+    const url = new URL(window.location);
+    url.searchParams.set('name', slug);
+    history.replaceState(null, '', url);
+  }
+
   renderProduct();
   renderRelatedProducts();
   initTabs();
@@ -43,6 +51,11 @@ function renderProduct() {
   const discount = p.originalPrice ? Math.round((1 - p.price / p.originalPrice) * 100) : 0;
 
   document.title = `${p.name} — OroVault`;
+
+  // Set dynamic meta description
+  let metaDesc = document.querySelector('meta[name="description"]');
+  if (!metaDesc) { metaDesc = document.createElement('meta'); metaDesc.name = 'description'; document.head.appendChild(metaDesc); }
+  metaDesc.content = `Shop the ${p.name} by ${p.brand}. ${p.specs}. Buy authentic ${p.category.toLowerCase()} watches at OroVault.`;
 
   document.getElementById('product-content').innerHTML = `
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
