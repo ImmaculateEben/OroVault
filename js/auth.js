@@ -1,5 +1,5 @@
 // ============================================================
-// Watch Store â€” Auth (Login / Register) Tab Toggle
+// Watch Store — Auth (Login / Register) Tab Toggle
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', () => {

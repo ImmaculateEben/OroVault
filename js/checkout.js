@@ -1,5 +1,5 @@
 // ============================================================
-// Watch Store â€” Checkout Form Validation & International Support
+// Watch Store — Checkout Form Validation & International Support
 // ============================================================
 
 let currentPaymentMethod = 'card';

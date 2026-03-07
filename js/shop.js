@@ -1,5 +1,5 @@
 // ============================================================
-// Watch Store â€” Shop Page Logic (Filter, Sort, Search)
+// Watch Store — Shop Page Logic (Filter, Sort, Search)
 // ============================================================
 
 let filteredProducts = [];
@@ -63,7 +63,7 @@ function initFilters() {
     priceRange.value = currentFilters.maxPrice;
     priceRange.addEventListener('input', (e) => {
       currentFilters.maxPrice = parseInt(e.target.value);
-      document.getElementById('price-value').textContent = `$0 â€” $${parseInt(e.target.value).toLocaleString()}`;
+      document.getElementById('price-value').textContent = `$0 — $${parseInt(e.target.value).toLocaleString()}`;
       applyFilters();
     });
   }
@@ -202,7 +202,7 @@ function clearAllFilters() {
   const priceRange = document.getElementById('price-range');
   if (priceRange) priceRange.value = 10000;
   const priceValue = document.getElementById('price-value');
-  if (priceValue) priceValue.textContent = '$0 â€” $10,000';
+  if (priceValue) priceValue.textContent = '$0 — $10,000';
   const searchInput = document.getElementById('shop-search');
   if (searchInput) searchInput.value = '';
   const sortSelect = document.getElementById('sort-select');

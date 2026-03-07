@@ -1,5 +1,5 @@
 // ============================================================
-// Watch Store â€” Product Detail Page Logic
+// Watch Store — Product Detail Page Logic
 // ============================================================
 
 let currentProduct = null;
@@ -50,7 +50,7 @@ function renderProduct() {
   const wishlisted = isWishlisted(p.id);
   const discount = p.originalPrice ? Math.round((1 - p.price / p.originalPrice) * 100) : 0;
 
-  document.title = `${p.name} â€” OroVault`;
+  document.title = `${p.name} — OroVault`;
 
   // Set dynamic meta description
   let metaDesc = document.querySelector('meta[name="description"]');
