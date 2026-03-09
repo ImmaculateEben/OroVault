@@ -76,7 +76,7 @@ function renderProduct() {
       <!-- Product Info -->
       <div>
         <!-- Breadcrumb -->
-        <p class="text-[var(--gray)] text-xs mb-4">
+        <p class="text-[var(--gray)] text-xs mb-4 break-words">
           <a href="index" class="hover:text-[var(--gold)]">Home</a> / 
           <a href="shop" class="hover:text-[var(--gold)]">Shop</a> / 
           <a href="shop?category=${p.category}" class="hover:text-[var(--gold)]">${p.category}</a> / 
@@ -84,7 +84,7 @@ function renderProduct() {
         </p>
 
         <p class="text-[var(--gold)] text-xs uppercase tracking-widest mb-1">${p.brand}</p>
-        <h1 class="font-serif text-3xl md:text-4xl font-bold text-white mb-3">${p.name}</h1>
+        <h1 class="font-serif text-3xl md:text-4xl font-bold text-white mb-3 break-words">${p.name}</h1>
 
         <!-- Rating -->
         <div class="flex items-center gap-2 mb-4">
@@ -93,7 +93,7 @@ function renderProduct() {
         </div>
 
         <!-- Price -->
-        <div class="flex items-center gap-3 mb-6">
+        <div class="flex items-center gap-3 mb-6 flex-wrap">
           <span class="text-[var(--gold)] text-3xl font-bold">${formatPrice(p.price)}</span>
           ${p.originalPrice ? `<span class="text-[var(--gray)] text-xl line-through">${formatPrice(p.originalPrice)}</span>` : ''}
           ${discount > 0 ? `<span class="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">SAVE ${discount}%</span>` : ''}
@@ -151,9 +151,9 @@ function renderProduct() {
             <div class="space-y-2">
               ${p.specs.split(' | ').map(spec => {
                 const [label, value] = spec.split(': ');
-                return `<div class="flex justify-between text-sm py-2 border-b border-[var(--dark-lighter)]">
-                  <span class="text-[var(--gray)]">${label}</span>
-                  <span class="text-white">${value}</span>
+                return `<div class="flex justify-between gap-4 text-sm py-2 border-b border-[var(--dark-lighter)]">
+                  <span class="text-[var(--gray)] shrink-0">${label}</span>
+                  <span class="text-white text-right break-words min-w-0">${value}</span>
                 </div>`;
               }).join('')}
             </div>
