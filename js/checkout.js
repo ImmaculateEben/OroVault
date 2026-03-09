@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
       showToast('Order placed successfully!');
       clearCart();
       setTimeout(() => {
-        window.location.href = 'index.html';
+        window.location.href = "index";
       }, 2000);
     }
   });

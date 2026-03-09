@@ -40,7 +40,7 @@ function showProductNotFound() {
       <svg class="w-20 h-20 text-[var(--dark-lighter)] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
       <h2 class="font-serif text-2xl text-[var(--gray)] mb-2">Product Not Found</h2>
       <p class="text-[var(--gray)] text-sm mb-6">The watch you're looking for doesn't exist or has been removed.</p>
-      <a href="shop.html" class="btn-gold text-[var(--dark)] px-6 py-3 rounded-lg text-sm font-semibold inline-block">Browse Collection</a>
+      <a href="shop" class="btn-gold text-[var(--dark)] px-6 py-3 rounded-lg text-sm font-semibold inline-block">Browse Collection</a>
     </div>
   `;
 }
@@ -77,9 +77,9 @@ function renderProduct() {
       <div>
         <!-- Breadcrumb -->
         <p class="text-[var(--gray)] text-xs mb-4">
-          <a href="index.html" class="hover:text-[var(--gold)]">Home</a> / 
-          <a href="shop.html" class="hover:text-[var(--gold)]">Shop</a> / 
-          <a href="shop.html?category=${p.category}" class="hover:text-[var(--gold)]">${p.category}</a> / 
+          <a href="index" class="hover:text-[var(--gold)]">Home</a> / 
+          <a href="shop" class="hover:text-[var(--gold)]">Shop</a> / 
+          <a href="shop?category=${p.category}" class="hover:text-[var(--gold)]">${p.category}</a> / 
           <span class="text-[var(--gold)]">${p.name}</span>
         </p>
 
@@ -114,7 +114,7 @@ function renderProduct() {
         <!-- Quantity & Actions -->
         <div class="flex flex-col sm:flex-row gap-4 mb-6">
           <div class="flex items-center border border-[var(--dark-lighter)] rounded-lg">
-            <button onclick="adjustQty(-1)" class="qty-btn px-4 py-3 text-[var(--gray-light)] hover:text-white border-r border-[var(--dark-lighter)]">âˆ’</button>
+            <button onclick="adjustQty(-1)" class="qty-btn px-4 py-3 text-[var(--gray-light)] hover:text-white border-r border-[var(--dark-lighter)]">-</button>
             <span id="qty-display" class="px-6 py-3 text-white font-medium">1</span>
             <button onclick="adjustQty(1)" class="qty-btn px-4 py-3 text-[var(--gray-light)] hover:text-white border-l border-[var(--dark-lighter)]">+</button>
           </div>

@@ -2,14 +2,14 @@
 // Watch Store — Shared App Logic (Navbar, Footer, Toast, etc.)
 // ============================================================
 
-// â”€â”€ Init on Every Page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Init on Every Page ────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   updateCartBadge();
   updateWishlistBadge();
   initScrollReveal();
 });
 
-// â”€â”€ Mobile Navigation Toggle â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Mobile Navigation Toggle ─────────────────────────────
 function initMobileNav() {
   const menuBtn = document.getElementById('mobile-menu-btn');
   const closeBtn = document.getElementById('mobile-menu-close');
@@ -29,7 +29,7 @@ function initMobileNav() {
   }
 }
 
-// â”€â”€ Toast Notification â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Toast Notification ──────────────────────────────────
 function showToast(message, type = 'success') {
   // Remove existing toasts
   document.querySelectorAll('.toast').forEach(t => t.remove());
@@ -57,7 +57,7 @@ function showToast(message, type = 'success') {
   }, 2500);
 }
 
-// â”€â”€ Scroll Reveal (Intersection Observer) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Scroll Reveal (Intersection Observer) ───────────────
 function initScrollReveal() {
   const revealElements = document.querySelectorAll('.reveal');
   if (revealElements.length === 0) return;
@@ -78,7 +78,7 @@ function initScrollReveal() {
   });
 }
 
-// â”€â”€ Star Rating HTML Generator â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Star Rating HTML Generator ──────────────────────────
 function renderStars(rating) {
   let stars = '';
   for (let i = 1; i <= 5; i++) {
@@ -93,16 +93,16 @@ function renderStars(rating) {
   return stars;
 }
 
-// â”€â”€ Slug Generator â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Slug Generator ──────────────────────────────────────
 function generateSlug(name) {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 }
 
 function productURL(product) {
-  return `product.html?id=${product.id}&name=${generateSlug(product.name)}`;
+  return `product?id=${product.id}&name=${generateSlug(product.name)}`;
 }
 
-// â”€â”€ Product Card HTML Generator â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Product Card HTML Generator ─────────────────────────
 function renderProductCard(product) {
   const wishlisted = isWishlisted(product.id);
   const discount = product.originalPrice
@@ -145,7 +145,7 @@ function renderProductCard(product) {
   `;
 }
 
-// â”€â”€ Wishlist Toggle Handler â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Wishlist Toggle Handler ─────────────────────────────
 function handleWishlistToggle(btn, productId) {
   const added = toggleWishlist(productId);
   const svg = btn.querySelector('svg');
@@ -160,36 +160,36 @@ function handleWishlistToggle(btn, productId) {
   }
 }
 
-// â”€â”€ Format Price â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Format Price ────────────────────────────────────────
 function formatPrice(amount) {
   if (typeof formatCurrency === 'function') return formatCurrency(amount);
   return '$' + amount.toLocaleString('en-US', { minimumFractionDigits: 0 });
 }
 
-// â”€â”€ Image Fallback â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Image Fallback ──────────────────────────────────────
 function handleImgError(img) {
   img.onerror = null;
   img.src = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600"><rect fill="%231A1A1A" width="600" height="600"/><text fill="%23555" font-family="sans-serif" font-size="18" x="50%25" y="48%25" text-anchor="middle">Image Unavailable</text><text fill="%23C9A84C" font-family="serif" font-size="32" x="50%25" y="56%25" text-anchor="middle">OroVault</text></svg>');
 }
 
-// â”€â”€ Navbar HTML (inserted via JS) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Navbar HTML (inserted via JS) ───────────────────────
 function getNavbarHTML() {
   return `
   <nav class="fixed top-0 left-0 right-0 z-50 bg-[var(--dark)]/95 backdrop-blur-md border-b border-[var(--dark-lighter)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16 lg:h-20">
         <!-- Logo -->
-        <a href="index.html" class="flex items-center gap-2">
+        <a href="index" class="flex items-center gap-2">
           <svg class="w-8 h-8 text-[var(--gold)]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
           <span class="font-['Playfair_Display'] text-xl md:text-2xl font-bold text-white">ORO<span class="text-[var(--gold)]">VAULT</span></span>
         </a>
 
         <!-- Desktop Nav Links -->
         <div class="hidden lg:flex items-center gap-8">
-          <a href="index.html" class="text-sm uppercase tracking-wider text-[var(--gray-light)] hover:text-[var(--gold)] transition-colors">Home</a>
-          <a href="shop.html" class="text-sm uppercase tracking-wider text-[var(--gray-light)] hover:text-[var(--gold)] transition-colors">Shop</a>
-          <a href="about.html" class="text-sm uppercase tracking-wider text-[var(--gray-light)] hover:text-[var(--gold)] transition-colors">About</a>
-          <a href="contact.html" class="text-sm uppercase tracking-wider text-[var(--gray-light)] hover:text-[var(--gold)] transition-colors">Contact</a>
+          <a href="index" class="text-sm uppercase tracking-wider text-[var(--gray-light)] hover:text-[var(--gold)] transition-colors">Home</a>
+          <a href="shop" class="text-sm uppercase tracking-wider text-[var(--gray-light)] hover:text-[var(--gold)] transition-colors">Shop</a>
+          <a href="about" class="text-sm uppercase tracking-wider text-[var(--gray-light)] hover:text-[var(--gold)] transition-colors">About</a>
+          <a href="contact" class="text-sm uppercase tracking-wider text-[var(--gray-light)] hover:text-[var(--gold)] transition-colors">Contact</a>
         </div>
 
         <!-- Right Icons -->
@@ -203,16 +203,16 @@ function getNavbarHTML() {
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
           </button>
           <!-- Auth -->
-          <a href="auth.html" class="text-[var(--gray-light)] hover:text-[var(--gold)] transition-colors">
+          <a href="auth" class="text-[var(--gray-light)] hover:text-[var(--gold)] transition-colors">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
           </a>
           <!-- Wishlist -->
-          <a href="wishlist.html" class="relative text-[var(--gray-light)] hover:text-[var(--gold)] transition-colors">
+          <a href="wishlist" class="relative text-[var(--gray-light)] hover:text-[var(--gold)] transition-colors">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
             <span class="wishlist-badge badge-count" style="display:none">0</span>
           </a>
           <!-- Cart -->
-          <a href="cart.html" class="relative text-[var(--gray-light)] hover:text-[var(--gold)] transition-colors">
+          <a href="cart" class="relative text-[var(--gray-light)] hover:text-[var(--gold)] transition-colors">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/></svg>
             <span class="cart-badge badge-count" style="display:none">0</span>
           </a>
@@ -245,13 +245,13 @@ function getNavbarHTML() {
       </button>
     </div>
     <div class="flex flex-col p-6 gap-6">
-      <a href="index.html" class="text-lg uppercase tracking-wider text-[var(--gray-light)] hover:text-[var(--gold)]">Home</a>
-      <a href="shop.html" class="text-lg uppercase tracking-wider text-[var(--gray-light)] hover:text-[var(--gold)]">Shop</a>
-      <a href="about.html" class="text-lg uppercase tracking-wider text-[var(--gray-light)] hover:text-[var(--gold)]">About</a>
-      <a href="contact.html" class="text-lg uppercase tracking-wider text-[var(--gray-light)] hover:text-[var(--gold)]">Contact</a>
-      <a href="auth.html" class="text-lg uppercase tracking-wider text-[var(--gray-light)] hover:text-[var(--gold)]">Account</a>
-      <a href="wishlist.html" class="text-lg uppercase tracking-wider text-[var(--gray-light)] hover:text-[var(--gold)]">Wishlist</a>
-      <a href="cart.html" class="text-lg uppercase tracking-wider text-[var(--gray-light)] hover:text-[var(--gold)]">Cart</a>
+      <a href="index" class="text-lg uppercase tracking-wider text-[var(--gray-light)] hover:text-[var(--gold)]">Home</a>
+      <a href="shop" class="text-lg uppercase tracking-wider text-[var(--gray-light)] hover:text-[var(--gold)]">Shop</a>
+      <a href="about" class="text-lg uppercase tracking-wider text-[var(--gray-light)] hover:text-[var(--gold)]">About</a>
+      <a href="contact" class="text-lg uppercase tracking-wider text-[var(--gray-light)] hover:text-[var(--gold)]">Contact</a>
+      <a href="auth" class="text-lg uppercase tracking-wider text-[var(--gray-light)] hover:text-[var(--gold)]">Account</a>
+      <a href="wishlist" class="text-lg uppercase tracking-wider text-[var(--gray-light)] hover:text-[var(--gold)]">Wishlist</a>
+      <a href="cart" class="text-lg uppercase tracking-wider text-[var(--gray-light)] hover:text-[var(--gold)]">Cart</a>
       <div class="pt-4 border-t border-[var(--dark-lighter)]">
         <p class="text-[var(--gray)] text-xs uppercase tracking-wider mb-3">Currency</p>
         <select onchange="setCurrency(this.value)" class="w-full bg-[var(--dark-light)] border border-[var(--dark-lighter)] rounded-lg px-3 py-2 text-white text-sm">
@@ -263,7 +263,7 @@ function getNavbarHTML() {
   `;
 }
 
-// â”€â”€ Footer HTML â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Footer HTML ─────────────────────────────────────────
 function getFooterHTML() {
   return `
   <footer class="bg-[var(--dark-deeper)] border-t border-[var(--dark-lighter)] mt-20">
@@ -271,7 +271,7 @@ function getFooterHTML() {
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         <!-- Brand -->
         <div>
-          <a href="index.html" class="flex items-center gap-2 mb-4">
+          <a href="index" class="flex items-center gap-2 mb-4">
             <svg class="w-8 h-8 text-[var(--gold)]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
             <span class="font-['Playfair_Display'] text-xl font-bold text-white">ORO<span class="text-[var(--gold)]">VAULT</span></span>
           </a>
@@ -287,11 +287,11 @@ function getFooterHTML() {
         <div>
           <h4 class="text-white font-semibold mb-4 uppercase tracking-wider text-sm">Quick Links</h4>
           <ul class="space-y-3">
-            <li><a href="shop.html" class="text-[var(--gray)] hover:text-[var(--gold)] text-sm transition-colors">All Watches</a></li>
-            <li><a href="shop.html?category=Luxury" class="text-[var(--gray)] hover:text-[var(--gold)] text-sm transition-colors">Luxury Collection</a></li>
-            <li><a href="shop.html?category=Sport" class="text-[var(--gray)] hover:text-[var(--gold)] text-sm transition-colors">Sport Collection</a></li>
-            <li><a href="shop.html?category=Smart" class="text-[var(--gray)] hover:text-[var(--gold)] text-sm transition-colors">Smart Watches</a></li>
-            <li><a href="shop.html?category=Dress" class="text-[var(--gray)] hover:text-[var(--gold)] text-sm transition-colors">Dress Watches</a></li>
+            <li><a href="shop" class="text-[var(--gray)] hover:text-[var(--gold)] text-sm transition-colors">All Watches</a></li>
+            <li><a href="shop?category=Luxury" class="text-[var(--gray)] hover:text-[var(--gold)] text-sm transition-colors">Luxury Collection</a></li>
+            <li><a href="shop?category=Sport" class="text-[var(--gray)] hover:text-[var(--gold)] text-sm transition-colors">Sport Collection</a></li>
+            <li><a href="shop?category=Smart" class="text-[var(--gray)] hover:text-[var(--gold)] text-sm transition-colors">Smart Watches</a></li>
+            <li><a href="shop?category=Dress" class="text-[var(--gray)] hover:text-[var(--gold)] text-sm transition-colors">Dress Watches</a></li>
           </ul>
         </div>
 
@@ -299,11 +299,11 @@ function getFooterHTML() {
         <div>
           <h4 class="text-white font-semibold mb-4 uppercase tracking-wider text-sm">Customer Service</h4>
           <ul class="space-y-3">
-            <li><a href="contact.html" class="text-[var(--gray)] hover:text-[var(--gold)] text-sm transition-colors">Contact Us</a></li>
+            <li><a href="contact" class="text-[var(--gray)] hover:text-[var(--gold)] text-sm transition-colors">Contact Us</a></li>
             <li><a href="#" class="text-[var(--gray)] hover:text-[var(--gold)] text-sm transition-colors">Shipping & Returns</a></li>
             <li><a href="#" class="text-[var(--gray)] hover:text-[var(--gold)] text-sm transition-colors">Warranty</a></li>
             <li><a href="#" class="text-[var(--gray)] hover:text-[var(--gold)] text-sm transition-colors">Size Guide</a></li>
-            <li><a href="about.html" class="text-[var(--gray)] hover:text-[var(--gold)] text-sm transition-colors">About Us</a></li>
+            <li><a href="about" class="text-[var(--gray)] hover:text-[var(--gold)] text-sm transition-colors">About Us</a></li>
           </ul>
         </div>
 
@@ -331,7 +331,7 @@ function getFooterHTML() {
   `;
 }
 
-// â”€â”€ Search Functions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Search Functions ────────────────────────────────────
 function toggleSearch() {
   const bar = document.getElementById('search-bar');
   bar.classList.toggle('hidden');
@@ -351,7 +351,7 @@ function handleNavSearch(query) {
     resultsDiv.innerHTML = '<p class="p-4 text-[var(--gray)] text-sm">No watches found</p>';
   } else {
     resultsDiv.innerHTML = results.map(p => `
-      <a href="product.html?id=${p.id}&name=${generateSlug(p.name)}" class="flex items-center gap-3 p-3 hover:bg-[var(--dark-lighter)] transition-colors">
+      <a href="product?id=${p.id}&name=${generateSlug(p.name)}" class="flex items-center gap-3 p-3 hover:bg-[var(--dark-lighter)] transition-colors">
         <img src="${p.images[0]}" alt="${p.name}" class="w-12 h-12 rounded object-cover" onerror="handleImgError(this)">
         <div>
           <p class="text-white text-sm font-medium">${p.name}</p>
@@ -363,7 +363,7 @@ function handleNavSearch(query) {
   resultsDiv.classList.remove('hidden');
 }
 
-// â”€â”€ Inject Navbar & Footer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Inject Navbar & Footer ─────────────────────────────
 function initPage() {
   const navPlaceholder = document.getElementById('navbar-placeholder');
   const footerPlaceholder = document.getElementById('footer-placeholder');

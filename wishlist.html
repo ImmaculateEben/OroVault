@@ -38,7 +38,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h1 class="font-serif text-4xl md:text-5xl font-bold mb-2">Wishlist</h1>
       <p class="text-[var(--gray)] text-sm">
-        <a href="index.html" class="hover:text-[var(--gold)]">Home</a>
+        <a href="index" class="hover:text-[var(--gold)]">Home</a>
         <span class="mx-2">/</span>
         <span class="text-[var(--gold)]">Wishlist</span>
       </p>
@@ -74,7 +74,7 @@
             <svg class="w-20 h-20 text-[var(--dark-lighter)] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
             <h2 class="font-serif text-2xl text-[var(--gray)] mb-2">Your Wishlist is Empty</h2>
             <p class="text-[var(--gray)] text-sm mb-6">Save your favorite timepieces for later.</p>
-            <a href="shop.html" class="btn-gold text-[var(--dark)] px-8 py-3 rounded-lg text-sm uppercase tracking-wider font-bold inline-block">Browse Collection</a>
+            <a href="shop" class="btn-gold text-[var(--dark)] px-8 py-3 rounded-lg text-sm uppercase tracking-wider font-bold inline-block">Browse Collection</a>
           </div>
         `;
         return;
@@ -89,14 +89,14 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           ${wishlistProducts.map(p => `
             <div class="bg-[var(--dark-light)] rounded-xl overflow-hidden border border-[var(--dark-lighter)]">
-              <a href="product.html?id=${p.id}&name=${generateSlug(p.name)}">
+              <a href="product?id=${p.id}&name=${generateSlug(p.name)}">
                 <div class="aspect-square overflow-hidden">
                   <img src="${p.images[0]}" alt="${p.name}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
                 </div>
               </a>
               <div class="p-4">
                 <p class="text-[var(--gray)] text-xs uppercase tracking-wider mb-1">${p.brand}</p>
-                <a href="product.html?id=${p.id}&name=${generateSlug(p.name)}"><h3 class="text-white font-medium text-sm mb-2 hover:text-[var(--gold)] transition-colors">${p.name}</h3></a>
+                <a href="product?id=${p.id}&name=${generateSlug(p.name)}"><h3 class="text-white font-medium text-sm mb-2 hover:text-[var(--gold)] transition-colors">${p.name}</h3></a>
                 <div class="flex items-center gap-2 mb-4">
                   <span class="text-[var(--gold)] font-bold">$${p.price.toLocaleString()}</span>
                   ${p.originalPrice ? `<span class="text-[var(--gray)] text-sm line-through">$${p.originalPrice.toLocaleString()}</span>` : ''}

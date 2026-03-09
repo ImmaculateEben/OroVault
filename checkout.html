@@ -38,9 +38,9 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h1 class="font-serif text-4xl md:text-5xl font-bold mb-2">Checkout</h1>
       <p class="text-[var(--gray)] text-sm">
-        <a href="index.html" class="hover:text-[var(--gold)]">Home</a>
+        <a href="index" class="hover:text-[var(--gold)]">Home</a>
         <span class="mx-2">/</span>
-        <a href="cart.html" class="hover:text-[var(--gold)]">Cart</a>
+        <a href="cart" class="hover:text-[var(--gold)]">Cart</a>
         <span class="mx-2">/</span>
         <span class="text-[var(--gold)]">Checkout</span>
       </p>
@@ -301,7 +301,7 @@
       const totalsDiv = document.getElementById('checkout-totals');
 
       if (cart.length === 0) {
-        itemsDiv.innerHTML = '<p class="text-[var(--gray)] text-sm">Your cart is empty. <a href="shop.html" class="text-[var(--gold)] hover:underline">Shop now</a></p>';
+        itemsDiv.innerHTML = '<p class="text-[var(--gray)] text-sm">Your cart is empty. <a href="shop" class="text-[var(--gold)] hover:underline">Shop now</a></p>';
         return;
       }
 
